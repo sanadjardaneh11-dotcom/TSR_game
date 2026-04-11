@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://eqhm0rrcpqvt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jkfq8"]
+font_size = 100
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(1.15908, 1.33138)
+label_settings = SubResource("LabelSettings_jkfq8")
