@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://eqhm0rrcpqvt"]
 
 [ext_resource type="Script" uid="uid://bl7u3ui72e8x4" path="res://Control.gd" id="1_0fbet"]
+[ext_resource type="FontFile" uid="uid://ckpiul8lxwrs0" path="res://MathJax_Fraktur-Regular.otf" id="2_62e2m"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jkfq8"]
+font = ExtResource("2_62e2m")
+font_size = 27
 
 [node name="Control" type="Control" unique_id=2049187922]
 layout_mode = 3
@@ -15,8 +18,17 @@ script = ExtResource("1_0fbet")
 
 [node name="Label" type="Label" parent="." unique_id=1316413969]
 layout_mode = 1
-offset_right = 228.0
-offset_bottom = 49.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.0
+offset_top = -24.5
+offset_right = 114.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(1.15908, 1.33138)
 text = "Press Action Button to Start...
 "
