@@ -1,17 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://eqhm0rrcpqvt"]
+[gd_scene format=3 uid="uid://eqhm0rrcpqvt"]
+
+[ext_resource type="Script" uid="uid://bl7u3ui72e8x4" path="res://Control.gd" id="1_0fbet"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jkfq8"]
-font_size = 100
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" unique_id=2049187922]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0fbet")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="Label" type="Label" parent="." unique_id=1316413969]
+layout_mode = 1
+offset_right = 228.0
+offset_bottom = 49.0
 scale = Vector2(1.15908, 1.33138)
+text = "Press Action Button to Start...
+"
 label_settings = SubResource("LabelSettings_jkfq8")
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=1356186468]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 353.0
+offset_top = 283.0
+offset_right = -597.0
+offset_bottom = -325.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "Write your answer here
+"
