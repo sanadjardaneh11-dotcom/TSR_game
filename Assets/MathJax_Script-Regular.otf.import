@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cedni8yxlfs2l"
-path="res://.godot/imported/MathJax_Script-Regular.otf-f6f485611353e4d76178f0657cf5f381.fontdata"
+path="res://.godot/imported/MathJax_Script-Regular.otf-9c1f4042b9fe2f39604b639b519d4764.fontdata"
 
 [deps]
 
-source_file="res://MathJax_Script-Regular.otf"
-dest_files=["res://.godot/imported/MathJax_Script-Regular.otf-f6f485611353e4d76178f0657cf5f381.fontdata"]
+source_file="res://Assets/MathJax_Script-Regular.otf"
+dest_files=["res://.godot/imported/MathJax_Script-Regular.otf-9c1f4042b9fe2f39604b639b519d4764.fontdata"]
 
 [params]
 
