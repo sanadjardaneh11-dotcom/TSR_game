@@ -1,20 +1,20 @@
 [gd_scene format=3 uid="uid://eqhm0rrcpqvt"]
 
-[ext_resource type="Script" uid="uid://bl7u3ui72e8x4" path="res://Scripts/Control.gd" id="1_cgmvo"]
-[ext_resource type="FontFile" uid="uid://bcesyq484sc00" path="res://Assets/MathJax_Main-Regular.otf" id="2_vh8u0"]
+[ext_resource type="Script" uid="uid://bl7u3ui72e8x4" path="res://Scripts/Control.gd" id="1_idj7w"]
+[ext_resource type="FontFile" uid="uid://bcesyq484sc00" path="res://Assets/MathJax_Main-Regular.otf" id="2_kln2b"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jkfq8"]
-font = ExtResource("2_vh8u0")
+font = ExtResource("2_kln2b")
 font_size = 27
 
-[node name="Control" type="Control" unique_id=2049187922]
+[node name="Main" type="Control" unique_id=2049187922]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_cgmvo")
+script = ExtResource("1_idj7w")
 
 [node name="Label" type="Label" parent="." unique_id=1316413969]
 layout_mode = 1

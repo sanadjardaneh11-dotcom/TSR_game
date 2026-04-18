@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://c5cwmbsvgh7dq"]
+
+[ext_resource type="Script" uid="uid://cb7kjm1mpf54a" path="res://Scripts/settings.gd" id="1_4geyq"]
+
+[node name="Control" type="Control" unique_id=1017674838]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4geyq")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1648718100]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=179450125]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Titles" type="VBoxContainer" parent="HBoxContainer" unique_id=243381138]
+layout_mode = 2
+alignment = 1
+
+[node name="Music" type="Label" parent="HBoxContainer/Titles" unique_id=655592723]
+layout_mode = 2
+text = "Music"
+
+[node name="Sounds" type="Label" parent="HBoxContainer/Titles" unique_id=1006959586]
+layout_mode = 2
+text = "Sounds"
+
+[node name="Values" type="VBoxContainer" parent="HBoxContainer" unique_id=1200492617]
+layout_mode = 2
+alignment = 1
+
+[node name="Music" type="HSlider" parent="HBoxContainer/Values" unique_id=564475475]
+layout_mode = 2
+
+[node name="Sounds" type="HSlider" parent="HBoxContainer/Values" unique_id=29539551]
+layout_mode = 2
+
+[node name="Display value" type="VBoxContainer" parent="HBoxContainer" unique_id=57751346]
+layout_mode = 2
+alignment = 1
+
+[node name="Music" type="Label" parent="HBoxContainer/Display value" unique_id=507731379]
+layout_mode = 2
+
+[node name="Sounds" type="Label" parent="HBoxContainer/Display value" unique_id=100230924]
+layout_mode = 2
+
+[connection signal="value_changed" from="HBoxContainer/Values/Music" to="." method="_on_value_changed"]
+[connection signal="value_changed" from="HBoxContainer/Values/Sounds" to="." method="_on_value_changed"]
