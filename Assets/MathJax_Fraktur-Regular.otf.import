@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://ckpiul8lxwrs0"
-path="res://.godot/imported/MathJax_Fraktur-Regular.otf-9be0940e63d00fba9513bee41d93df46.fontdata"
+path="res://.godot/imported/MathJax_Fraktur-Regular.otf-640f8e779d94c609c9ed9fe63e0a24b5.fontdata"
 
 [deps]
 
-source_file="res://MathJax_Fraktur-Regular.otf"
-dest_files=["res://.godot/imported/MathJax_Fraktur-Regular.otf-9be0940e63d00fba9513bee41d93df46.fontdata"]
+source_file="res://Assets/MathJax_Fraktur-Regular.otf"
+dest_files=["res://.godot/imported/MathJax_Fraktur-Regular.otf-640f8e779d94c609c9ed9fe63e0a24b5.fontdata"]
 
 [params]
 

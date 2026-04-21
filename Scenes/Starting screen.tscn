@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://shkah3dcnjym"]
+
+[ext_resource type="Script" uid="uid://bk2e2l1usuggm" path="res://Scripts/starting_screen.gd" id="1_qpa6t"]
+
+[node name="Control" type="Control" unique_id=1570635205]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qpa6t")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2083238767]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=331863655]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.44900003
+anchor_right = 0.5
+anchor_bottom = 0.551
+offset_left = -41.0
+offset_top = 0.047973633
+offset_right = 41.0
+offset_bottom = -0.04800415
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="begin" type="Button" parent="VBoxContainer" unique_id=518224455]
+layout_mode = 2
+text = "BEGIN?"
+flat = true
+
+[node name="settings" type="Button" parent="VBoxContainer" unique_id=773815431]
+layout_mode = 2
+text = "SETTINGS"
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/begin" to="." method="_on_begin_pressed"]
+[connection signal="pressed" from="VBoxContainer/settings" to="." method="_on_settings_pressed"]
