@@ -20,51 +20,79 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=179450125]
+[node name="settings" type="VBoxContainer" parent="." unique_id=877539432]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -49.0
+offset_top = -42.5
+offset_right = 122.0
+offset_bottom = 42.5
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Titles" type="VBoxContainer" parent="HBoxContainer" unique_id=243381138]
-layout_mode = 2
 alignment = 1
 
-[node name="Music" type="Label" parent="HBoxContainer/Titles" unique_id=655592723]
+[node name="SliderSettings" type="HBoxContainer" parent="settings" unique_id=179450125]
+layout_mode = 2
+
+[node name="Titles" type="VBoxContainer" parent="settings/SliderSettings" unique_id=243381138]
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 1
+
+[node name="Music" type="Label" parent="settings/SliderSettings/Titles" unique_id=655592723]
 layout_mode = 2
 text = "Music"
 
-[node name="Sounds" type="Label" parent="HBoxContainer/Titles" unique_id=1006959586]
+[node name="Sounds" type="Label" parent="settings/SliderSettings/Titles" unique_id=1006959586]
 layout_mode = 2
 text = "Sounds"
 
-[node name="Values" type="VBoxContainer" parent="HBoxContainer" unique_id=1200492617]
+[node name="Values" type="VBoxContainer" parent="settings/SliderSettings" unique_id=1200492617]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Music" type="HSlider" parent="settings/SliderSettings/Values" unique_id=564475475]
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.1
+
+[node name="Sounds" type="HSlider" parent="settings/SliderSettings/Values" unique_id=29539551]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+
+[node name="Display value" type="VBoxContainer" parent="settings/SliderSettings" unique_id=57751346]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="Music" type="Label" parent="settings/SliderSettings/Display value" unique_id=507731379]
+layout_mode = 2
+
+[node name="Sounds" type="Label" parent="settings/SliderSettings/Display value" unique_id=100230924]
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="settings" unique_id=853956989]
 layout_mode = 2
 alignment = 1
 
-[node name="Music" type="HSlider" parent="HBoxContainer/Values" unique_id=564475475]
+[node name="Apply" type="Button" parent="settings/Buttons" unique_id=585495652]
 layout_mode = 2
+text = "Apply"
 
-[node name="Sounds" type="HSlider" parent="HBoxContainer/Values" unique_id=29539551]
+[node name="Quit" type="Button" parent="settings/Buttons" unique_id=1266136226]
 layout_mode = 2
+text = "Quit
+"
 
-[node name="Display value" type="VBoxContainer" parent="HBoxContainer" unique_id=57751346]
-layout_mode = 2
-alignment = 1
-
-[node name="Music" type="Label" parent="HBoxContainer/Display value" unique_id=507731379]
-layout_mode = 2
-
-[node name="Sounds" type="Label" parent="HBoxContainer/Display value" unique_id=100230924]
-layout_mode = 2
-
-[connection signal="value_changed" from="HBoxContainer/Values/Music" to="." method="_on_value_changed"]
-[connection signal="value_changed" from="HBoxContainer/Values/Sounds" to="." method="_on_value_changed"]
+[connection signal="value_changed" from="settings/SliderSettings/Values/Music" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="settings/SliderSettings/Values/Sounds" to="." method="_on_sounds_value_changed"]
+[connection signal="pressed" from="settings/Buttons/Apply" to="." method="_on_apply_pressed"]
+[connection signal="pressed" from="settings/Buttons/Quit" to="." method="_on_quit_pressed"]
