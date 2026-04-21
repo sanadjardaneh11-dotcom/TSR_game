@@ -2,8 +2,10 @@ extends Control
 
 @onready var music: HSlider = $settings/SliderSettings/Values/Music
 @onready var sounds: HSlider = $settings/SliderSettings/Values/Sounds
+@onready var res: HSlider = $settings/SliderSettings/Values/Size
 @onready var dispmusic: Label = $"settings/SliderSettings/Display value/Music"
 @onready var dispsounds: Label = $"settings/SliderSettings/Display value/Sounds"
+@onready var dispres: Label = $"settings/SliderSettings/Display value/Size"
 var savepath = "res://savedata.json"
 var savedata:Dictionary
 
@@ -13,8 +15,11 @@ func _ready() -> void:
 	print("Loaded value"+str(savedata["settings"][0])+"to music")
 	sounds.value = savedata["settings"][1]
 	print("Loaded value"+str(savedata["settings"][1])+"to sounds")
+	res.value = savedata["resulution"]
+	print("Loaded value"+str(savedata["resulution"])+"to res")
 	dispmusic.text = str(music.value)
 	dispsounds.text = str(sounds.value)
+	dispres.text = str(res.value)
 	
 
 func load_json_file():
@@ -40,6 +45,10 @@ func _on_sounds_value_changed(value: float) -> void:
 	dispsounds.text = str(sounds.value) 
 	savedata["settings"][1] = sounds.value
 
+func _on_size_value_changed(value: float) -> void:
+	dispres.text = str(res.value)
+	savedata["resulution"] = res.value
+	
 
 func _on_apply_pressed() -> void:
 	save_to_json_file()

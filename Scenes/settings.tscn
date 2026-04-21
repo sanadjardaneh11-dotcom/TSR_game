@@ -27,9 +27,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -49.0
+offset_left = -97.0
 offset_top = -42.5
-offset_right = 122.0
+offset_right = 99.0
 offset_bottom = 42.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -45,28 +45,41 @@ alignment = 1
 
 [node name="Music" type="Label" parent="settings/SliderSettings/Titles" unique_id=655592723]
 layout_mode = 2
+size_flags_vertical = 0
 text = "Music"
 
 [node name="Sounds" type="Label" parent="settings/SliderSettings/Titles" unique_id=1006959586]
 layout_mode = 2
 text = "Sounds"
 
+[node name="Label" type="Label" parent="settings/SliderSettings/Titles" unique_id=1048807924]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Size"
+
 [node name="Values" type="VBoxContainer" parent="settings/SliderSettings" unique_id=1200492617]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 4
 alignment = 1
 
 [node name="Music" type="HSlider" parent="settings/SliderSettings/Values" unique_id=564475475]
 layout_mode = 2
-size_flags_vertical = 4
+size_flags_vertical = 2
 max_value = 1.0
 step = 0.1
 
 [node name="Sounds" type="HSlider" parent="settings/SliderSettings/Values" unique_id=29539551]
 layout_mode = 2
+size_flags_vertical = 6
 max_value = 1.0
 step = 0.1
+
+[node name="Size" type="HSlider" parent="settings/SliderSettings/Values" unique_id=1613572294]
+layout_mode = 2
+size_flags_vertical = 10
+min_value = 1.0
+max_value = 4.0
+value = 1.0
 
 [node name="Display value" type="VBoxContainer" parent="settings/SliderSettings" unique_id=57751346]
 layout_mode = 2
@@ -77,6 +90,9 @@ size_flags_vertical = 4
 layout_mode = 2
 
 [node name="Sounds" type="Label" parent="settings/SliderSettings/Display value" unique_id=100230924]
+layout_mode = 2
+
+[node name="Size" type="Label" parent="settings/SliderSettings/Display value" unique_id=390506193]
 layout_mode = 2
 
 [node name="Buttons" type="HBoxContainer" parent="settings" unique_id=853956989]
@@ -94,5 +110,6 @@ text = "Quit
 
 [connection signal="value_changed" from="settings/SliderSettings/Values/Music" to="." method="_on_music_value_changed"]
 [connection signal="value_changed" from="settings/SliderSettings/Values/Sounds" to="." method="_on_sounds_value_changed"]
+[connection signal="value_changed" from="settings/SliderSettings/Values/Size" to="." method="_on_size_value_changed"]
 [connection signal="pressed" from="settings/Buttons/Apply" to="." method="_on_apply_pressed"]
 [connection signal="pressed" from="settings/Buttons/Quit" to="." method="_on_quit_pressed"]
