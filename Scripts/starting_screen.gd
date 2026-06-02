@@ -1,19 +1,16 @@
 extends Control
 
-var savepath = "res://savedata.json"
 var savedata:Dictionary
+var file_controls = file_control.new()
+
+
 func _ready() -> void:
-	load_json_file()
-	
-func load_json_file():
-	var file = FileAccess.open(savepath, FileAccess.READ)
-	var json = file.get_as_text()
-	var jsonobject = JSON.new()
-	jsonobject.parse(json)
-	print("Loaded:"+str(jsonobject.data)+"from file")
-	savedata = jsonobject.data
-	return savedata
-	
+	if file_controls.load_json_file() == null:
+		file_controls.make_new_json_file()
+	else:
+		savedata = file_controls.load_json_file()
+	file_controls.change_res(savedata["resulution"],get_window())
+
 func _on_settings_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/settings.tscn")
 

@@ -6,11 +6,10 @@ extends Control
 @onready var dispmusic: Label = $"settings/SliderSettings/Display value/Music"
 @onready var dispsounds: Label = $"settings/SliderSettings/Display value/Sounds"
 @onready var dispres: Label = $"settings/SliderSettings/Display value/Size"
-var savepath = "res://savedata.json"
+@onready var file_controls = file_control.new()
 var savedata:Dictionary
-
 func _ready() -> void:
-	load_json_file()
+	savedata = file_controls.load_json_file()
 	music.value = savedata["settings"][0]
 	print("Loaded value"+str(savedata["settings"][0])+"to music")
 	sounds.value = savedata["settings"][1]
@@ -22,20 +21,6 @@ func _ready() -> void:
 	dispres.text = str(res.value)
 	
 
-func load_json_file():
-	var file = FileAccess.open(savepath, FileAccess.READ)
-	var json = file.get_as_text()
-	var jsonobject = JSON.new()
-	jsonobject.parse(json)
-	print("Loaded:"+str(jsonobject.data)+"from file")
-	savedata = jsonobject.data
-	return savedata
-
-func save_to_json_file():
-	var file = FileAccess.open(savepath, FileAccess.ModeFlags.WRITE)
-	var json_text = JSON.stringify(savedata)
-	print("written:"+json_text+"to file")
-	file.store_string(json_text)
 
 func _on_music_value_changed(value: float) -> void:
 	dispmusic.text = str(music.value) 
@@ -51,7 +36,10 @@ func _on_size_value_changed(value: float) -> void:
 	
 
 func _on_apply_pressed() -> void:
-	save_to_json_file()
+	file_controls.change_res(savedata["resulution"],get_window())
+	file_controls.save_to_json_file(savedata)
+	get_tree().quit()
+	
 
 
 func _on_quit_pressed() -> void:

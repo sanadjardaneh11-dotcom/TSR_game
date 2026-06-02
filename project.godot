@@ -17,6 +17,8 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="TYRANT SLAYERS RADDDD"
 config/description="The world is a dark/bright place"
 run/main_scene="uid://shkah3dcnjym"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="TSR"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/bg_color=Color(1, 1, 1, 1)
 boot_splash/use_filter=false
@@ -26,9 +28,9 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=405
 window/size/viewport_height=270
-window/size/resizable=false
 window/size/borderless=true
 window/size/sharp_corners=true
+window/stretch/aspect="expand"
 
 [input]
 
