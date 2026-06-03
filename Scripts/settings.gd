@@ -1,4 +1,4 @@
-extends Control
+extends Node
 
 @onready var music: HSlider = $settings/SliderSettings/Values/Music
 @onready var sounds: HSlider = $settings/SliderSettings/Values/Sounds
@@ -38,7 +38,6 @@ func _on_size_value_changed(value: float) -> void:
 func _on_apply_pressed() -> void:
 	file_controls.change_res(savedata["resulution"],get_window())
 	file_controls.save_to_json_file(savedata)
-	get_tree().quit()
 	
 
 

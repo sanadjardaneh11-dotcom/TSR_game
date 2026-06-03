@@ -7,8 +7,8 @@ var file_controls = file_control.new()
 func _ready() -> void:
 	if file_controls.load_json_file() == null:
 		file_controls.make_new_json_file()
-	else:
-		savedata = file_controls.load_json_file()
+	
+	savedata = file_controls.load_json_file()
 	file_controls.change_res(savedata["resulution"],get_window())
 
 func _on_settings_pressed() -> void:

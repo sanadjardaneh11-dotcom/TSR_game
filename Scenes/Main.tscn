@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bl7u3ui72e8x4" path="res://Scripts/Control.gd" id="1_idj7w"]
 [ext_resource type="FontFile" uid="uid://bcesyq484sc00" path="res://Assets/MathJax_Main-Regular.otf" id="2_kln2b"]
+[ext_resource type="PackedScene" uid="uid://si7b2fypanqg" path="res://Scenes/event.tscn" id="3_kln2b"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jkfq8"]
 font = ExtResource("2_kln2b")
@@ -29,6 +30,8 @@ label_settings = SubResource("LabelSettings_jkfq8")
 horizontal_alignment = 1
 text_overrun_behavior = 1
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=309352780]
+
 [node name="TextEdit" type="TextEdit" parent="." unique_id=1356186468]
 visible = false
 layout_mode = 1
@@ -42,4 +45,13 @@ offset_bottom = -243.0
 grow_horizontal = 2
 grow_vertical = 2
 placeholder_text = "Write your answer here
+"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1723474546]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="event" parent="." unique_id=907875908 instance=ExtResource("3_kln2b")]
+editor_description = "cum
 "
