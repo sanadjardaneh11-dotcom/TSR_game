@@ -6,7 +6,17 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_o0f8b"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_whmwu"]
+
+[sub_resource type="Environment" id="Environment_whmwu"]
+glow_enabled = true
+glow_normalized = true
+fog_depth_curve = 3.8637474
+volumetric_fog_enabled = true
+volumetric_fog_length = 32.0
+
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=1228507136]
+floor_max_angle = 1.7453293
 script = ExtResource("1_whmwu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1275210531]
@@ -16,3 +26,12 @@ shape = SubResource("CapsuleShape3D_cmdk4")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=347354818]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_o0f8b")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=438202122]
+transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.42261827, 0, -0.42261827, 0.90630776, 0, 1.5, 0)
+shape = SubResource("SphereShape3D_whmwu")
+spring_length = 3.0
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=709191205]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.2588191, 0, 0.2588191, 0.965926, 0, -1.1920929e-07, 3.0000005)
+environment = SubResource("Environment_whmwu")

@@ -12,8 +12,8 @@ func _ready() -> void:
 	file_controls.change_res(savedata["resulution"],get_window())
 
 func _on_settings_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/settings.tscn")
+	get_tree().change_scene_to_file("res://Scenes/UI/settings.tscn")
 
 
 func _on_begin_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/Main.tscn")
+	get_tree().change_scene_to_file("res://Scenes/levels/Main.tscn")
