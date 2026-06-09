@@ -1,37 +1,32 @@
 [gd_scene format=3 uid="uid://duwxj653872ib"]
 
+[ext_resource type="PackedScene" uid="uid://b60g5k7h3ksfn" path="res://Assets/chargame/chargame.glb" id="1_sd786"]
 [ext_resource type="Script" uid="uid://otrww6u4smr7" path="res://Scripts/player_character.gd" id="1_whmwu"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cmdk4"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lwtqh"]
+height = 5.4658203
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_o0f8b"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_6gnr4"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_whmwu"]
-
-[sub_resource type="Environment" id="Environment_whmwu"]
+[sub_resource type="Environment" id="Environment_470aa"]
 glow_enabled = true
 glow_normalized = true
 fog_depth_curve = 3.8637474
 volumetric_fog_enabled = true
 volumetric_fog_length = 32.0
 
-[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1228507136]
-floor_max_angle = 1.7453293
+[node name="chargame" unique_id=792586188 instance=ExtResource("1_sd786")]
 script = ExtResource("1_whmwu")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1275210531]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_cmdk4")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2" unique_id=331989001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7329102, 0)
+shape = SubResource("CapsuleShape3D_lwtqh")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=347354818]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_o0f8b")
+[node name="SpringArm3D" type="SpringArm3D" parent="." index="3" unique_id=140305961]
+transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.42261827, 0, -0.42261827, 0.90630776, 0, 4.0852785, 0)
+shape = SubResource("SphereShape3D_6gnr4")
+spring_length = 9.0
 
-[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=438202122]
-transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.42261827, 0, -0.42261827, 0.90630776, 0, 1.5, 0)
-shape = SubResource("SphereShape3D_whmwu")
-spring_length = 3.0
-
-[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=709191205]
-transform = Transform3D(1, 0, 0, 0, 0.965926, -0.2588191, 0, 0.2588191, 0.965926, 0, -1.1920929e-07, 3.0000005)
-environment = SubResource("Environment_whmwu")
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" index="0" unique_id=1557871599]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.2588191, 0, 0.2588191, 0.965926, 0, -0.52016234, 4.459919)
+environment = SubResource("Environment_470aa")
