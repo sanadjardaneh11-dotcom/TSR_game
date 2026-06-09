@@ -42,4 +42,4 @@ func _on_apply_pressed() -> void:
 
 
 func _on_quit_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/Starting screen.tscn")
+	get_tree().change_scene_to_file("res://Scenes/UI/Starting screen.tscn")

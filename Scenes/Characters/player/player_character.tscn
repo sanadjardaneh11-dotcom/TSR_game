@@ -3,6 +3,43 @@
 [ext_resource type="PackedScene" uid="uid://b60g5k7h3ksfn" path="res://Assets/chargame/chargame.glb" id="1_sd786"]
 [ext_resource type="Script" uid="uid://otrww6u4smr7" path="res://Scripts/player_character.gd" id="1_whmwu"]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sd786"]
+animation = &"walkL"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lwtqh"]
+animation = &"walkR"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6gnr4"]
+animation = &"walkB"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_470aa"]
+animation = &"walkF"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r4bdn"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_2lv2j"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_sd786")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_lwtqh")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_6gnr4")
+blend_point_2/pos = Vector2(0, -1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_470aa")
+blend_point_3/pos = Vector2(0, 1)
+blend_point_4/node = SubResource("AnimationNodeAnimation_r4bdn")
+blend_point_4/pos = Vector2(0, 0)
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sao83"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_78to8"]
+states/Start/position = Vector2(226.5, 98.625)
+states/walk/node = SubResource("AnimationNodeBlendSpace2D_2lv2j")
+states/walk/position = Vector2(433.60745, 100.375)
+transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_sao83")]
+graph_offset = Vector2(148.60745, 0)
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lwtqh"]
 height = 5.4658203
 
@@ -17,6 +54,35 @@ volumetric_fog_length = 32.0
 
 [node name="chargame" unique_id=792586188 instance=ExtResource("1_sd786")]
 script = ExtResource("1_whmwu")
+
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(446465690) index="0" unique_id=1857686621]
+bones/0/position = Vector3(-6.560086e-24, 3.6000001, 0.1)
+bones/0/rotation = Quaternion(0.017226925, -1.0996165e-17, -1.0996165e-17, 0.9998517)
+bones/1/rotation = Quaternion(-0.0028066589, 1.8181949e-18, 1.817293e-18, 0.99999607)
+bones/2/rotation = Quaternion(0.06957627, -1.117517e-16, -1.0983332e-16, 0.99757665)
+bones/3/rotation = Quaternion(-0.3385002, 1.12171925e-07, -4.0352365e-08, 0.9409663)
+bones/4/position = Vector3(0.29042172, 0.5815834, -0.034020606)
+bones/4/rotation = Quaternion(0.8673808, 0.49743602, -0.0071741357, 0.012509538)
+bones/5/rotation = Quaternion(-0.048259925, -0.017603764, 0.45738265, 0.88778496)
+bones/6/rotation = Quaternion(0.09937846, -0.022002222, 0.019293394, 0.9946193)
+bones/7/position = Vector3(-0.29042172, 0.5815834, -0.034020606)
+bones/7/rotation = Quaternion(0.8673808, -0.49743602, 0.0071741357, 0.012509538)
+bones/8/rotation = Quaternion(-0.048259918, 0.017603748, -0.45738265, 0.887785)
+bones/9/rotation = Quaternion(0.09937846, 0.02200222, -0.01929339, 0.9946193)
+bones/11/position = Vector3(0.29999998, 0.49999985, -3.5346515e-09)
+bones/11/rotation = Quaternion(0.069046535, -0.012990285, -0.029966367, 0.99707866)
+bones/12/rotation = Quaternion(-0.065691926, -0.00032002997, 0.031040624, 0.9973571)
+bones/13/rotation = Quaternion(0.6619508, -3.941592e-10, 0.0015067231, 0.7495458)
+bones/13/scale = Vector3(1, 1, 1.0000001)
+bones/14/rotation = Quaternion(-0.0067552268, -0.013791716, 0.030900268, 0.99940455)
+bones/15/rotation = Quaternion(-0.1169634, 0.0019257369, -0.030866059, 0.9926546)
+bones/16/rotation = Quaternion(0.6188714, -1.3860202e-10, -0.0014086663, 0.78549117)
+
+[node name="AnimationTree" type="AnimationTree" parent="AnimationPlayer" parent_id_path=PackedInt32Array(1530536318) index="0" unique_id=1850525101]
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeStateMachine_78to8")
+anim_player = NodePath("..")
+parameters/walk/blend_position = Vector2(-0.055589497, 0.23584914)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2" unique_id=331989001]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7329102, 0)

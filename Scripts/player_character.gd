@@ -4,6 +4,9 @@ extends CharacterBody3D
 @export var max_speed = 100
 @export var friction = 1.1
 @onready var camera: SpringArm3D = $SpringArm3D
+@onready var tree = $AnimationPlayer/AnimationTree
+@onready var state = $AnimationPlayer/AnimationTree.get("parameters/playback")
+@onready var mesh: Node3D = $Armature
 
 var velocity_on_a_plane = Vector2(0,0)
 
@@ -16,6 +19,7 @@ func _physics_process(delta: float) -> void:
 	velocity += Vector3(velocity_on_a_plane.x,0,velocity_on_a_plane.y).rotated(Vector3.UP, camera.rotation.y)*delta
 	velocity = Vector3(clampf(velocity.x,-max_speed,max_speed),velocity.y,clampf(velocity.z,-max_speed,max_speed))
 	velocity /= friction
+	tree.set("parameters/walk/blend_position", Vector2(velocity.x,velocity.z).rotated(camera.rotation.y))
 
 	move_and_slide()
 
@@ -24,4 +28,5 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera.rotation.x -= event.relative.y * camera_speed 
 		camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, -30,85) 
 		camera.rotation.y -= event.relative.x * camera_speed 
+		mesh.rotation.y = camera.rotation.y
 	

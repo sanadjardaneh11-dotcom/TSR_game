@@ -1,0 +1,8 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+	<style>
+		.s0 { fill: #000000 } 
+		.s1 { fill: #ffffff } 
+	</style>
+	<path id="Shape 1" fill-rule="evenodd" class="s0" d="m24 0v24h-24v-24z"/>
+	<path id="Shape 2" fill-rule="evenodd" class="s1" d="m7.03 18.03l4.97-16.9 5.09 16.93-2.94 3.9-3.28 0.1z"/>
+</svg>
