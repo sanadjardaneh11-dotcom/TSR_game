@@ -1,21 +1,27 @@
 extends CharacterBody3D
-
+@export var camera_speed = 0.1
 @export var speed = 100
 @export var max_speed = 100
 @export var friction = 1.1
+@onready var camera: SpringArm3D = $SpringArm3D
+
 var velocity_on_a_plane = Vector2(0,0)
 
 func _ready() -> void:
-	pass # Replace with function body.
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
 func _physics_process(delta: float) -> void:
 	velocity_on_a_plane = Input.get_vector("ui_left","ui_right","ui_up","ui_down")*speed
-	velocity += Vector3(velocity_on_a_plane.x,0,velocity_on_a_plane.y)*delta
+	velocity += Vector3(velocity_on_a_plane.x,0,velocity_on_a_plane.y).rotated(Vector3.UP, camera.rotation.y)*delta
 	velocity = Vector3(clampf(velocity.x,-max_speed,max_speed),velocity.y,clampf(velocity.z,-max_speed,max_speed))
 	velocity /= friction
-	
-	print(velocity)
-	
 
 	move_and_slide()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		camera.rotation.x -= event.relative.y * camera_speed 
+		camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, -30,85) 
+		camera.rotation.y -= event.relative.x * camera_speed 
+	
