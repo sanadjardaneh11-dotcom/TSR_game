@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b60g5k7h3ksfn" path="res://Assets/chargame/chargame.glb" id="1_sd786"]
 [ext_resource type="Script" uid="uid://otrww6u4smr7" path="res://Scripts/player_character.gd" id="1_whmwu"]
+[ext_resource type="Texture2D" uid="uid://dpltywfej40xp" path="res://Assets/UI/arrow.tres" id="3_lwtqh"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sd786"]
 animation = &"walkL"
@@ -29,6 +30,7 @@ blend_point_3/node = SubResource("AnimationNodeAnimation_470aa")
 blend_point_3/pos = Vector2(0, 1)
 blend_point_4/node = SubResource("AnimationNodeAnimation_r4bdn")
 blend_point_4/pos = Vector2(0, 0)
+blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sao83"]
 advance_mode = 2
@@ -56,27 +58,27 @@ volumetric_fog_length = 32.0
 script = ExtResource("1_whmwu")
 
 [node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(446465690) index="0" unique_id=1857686621]
-bones/0/position = Vector3(-6.560086e-24, 3.6000001, 0.1)
-bones/0/rotation = Quaternion(0.017226925, -1.0996165e-17, -1.0996165e-17, 0.9998517)
-bones/1/rotation = Quaternion(-0.0028066589, 1.8181949e-18, 1.817293e-18, 0.99999607)
-bones/2/rotation = Quaternion(0.06957627, -1.117517e-16, -1.0983332e-16, 0.99757665)
+bones/0/position = Vector3(-6.5600864e-24, 3.6000001, 0.1)
+bones/0/rotation = Quaternion(0.017226925, -1.0996164e-17, -1.0996164e-17, 0.9998517)
+bones/1/rotation = Quaternion(-0.0028066589, 1.8181949e-18, 1.8172929e-18, 0.99999607)
+bones/2/rotation = Quaternion(0.06957627, -1.1175172e-16, -1.0983332e-16, 0.99757665)
 bones/3/rotation = Quaternion(-0.3385002, 1.12171925e-07, -4.0352365e-08, 0.9409663)
-bones/4/position = Vector3(0.29042172, 0.5815834, -0.034020606)
-bones/4/rotation = Quaternion(0.8673808, 0.49743602, -0.0071741357, 0.012509538)
-bones/5/rotation = Quaternion(-0.048259925, -0.017603764, 0.45738265, 0.88778496)
-bones/6/rotation = Quaternion(0.09937846, -0.022002222, 0.019293394, 0.9946193)
-bones/7/position = Vector3(-0.29042172, 0.5815834, -0.034020606)
-bones/7/rotation = Quaternion(0.8673808, -0.49743602, 0.0071741357, 0.012509538)
-bones/8/rotation = Quaternion(-0.048259918, 0.017603748, -0.45738265, 0.887785)
-bones/9/rotation = Quaternion(0.09937846, 0.02200222, -0.01929339, 0.9946193)
-bones/11/position = Vector3(0.29999998, 0.49999985, -3.5346515e-09)
-bones/11/rotation = Quaternion(0.069046535, -0.012990285, -0.029966367, 0.99707866)
-bones/12/rotation = Quaternion(-0.065691926, -0.00032002997, 0.031040624, 0.9973571)
-bones/13/rotation = Quaternion(0.6619508, -3.941592e-10, 0.0015067231, 0.7495458)
-bones/13/scale = Vector3(1, 1, 1.0000001)
-bones/14/rotation = Quaternion(-0.0067552268, -0.013791716, 0.030900268, 0.99940455)
-bones/15/rotation = Quaternion(-0.1169634, 0.0019257369, -0.030866059, 0.9926546)
-bones/16/rotation = Quaternion(0.6188714, -1.3860202e-10, -0.0014086663, 0.78549117)
+bones/4/position = Vector3(0.2909894, 0.58806884, -0.034207713)
+bones/4/rotation = Quaternion(0.8693389, 0.49400595, -0.0071246666, 0.012537777)
+bones/5/rotation = Quaternion(-0.026705882, -0.014165999, 0.45791027, 0.8884843)
+bones/6/rotation = Quaternion(0.07892192, -0.023279233, 0.01982093, 0.9964119)
+bones/7/position = Vector3(-0.2909894, 0.58806884, -0.034207713)
+bones/7/rotation = Quaternion(0.8693389, -0.49400595, 0.0071246666, 0.012537777)
+bones/8/rotation = Quaternion(-0.026705882, 0.014165999, -0.45791027, 0.8884843)
+bones/9/rotation = Quaternion(0.07892192, 0.023279233, -0.019820929, 0.9964119)
+bones/11/position = Vector3(0.29999998, 0.49999982, -3.5346515e-09)
+bones/11/rotation = Quaternion(0.031170737, 0.00037958438, -0.031147057, 0.99902856)
+bones/12/rotation = Quaternion(-0.055456623, -3.5731663e-08, 0.031065563, 0.99797773)
+bones/13/rotation = Quaternion(0.6727643, -1.8710503e-10, 0.0015313369, 0.7398553)
+bones/13/scale = Vector3(0.99999994, 1, 1.0000001)
+bones/14/rotation = Quaternion(0.031170737, -0.00037958438, 0.031147057, 0.99902856)
+bones/15/rotation = Quaternion(-0.055456623, 3.5731663e-08, -0.031065563, 0.99797773)
+bones/16/rotation = Quaternion(0.6727643, 1.8710503e-10, -0.0015313369, 0.7398553)
 
 [node name="AnimationTree" type="AnimationTree" parent="AnimationPlayer" parent_id_path=PackedInt32Array(1530536318) index="0" unique_id=1850525101]
 root_node = NodePath("../..")
@@ -96,3 +98,37 @@ spring_length = 9.0
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D" index="0" unique_id=1557871599]
 transform = Transform3D(1, 0, 0, 0, 0.965926, -0.2588191, 0, 0.2588191, 0.965926, 0, -0.52016234, 4.459919)
 environment = SubResource("Environment_470aa")
+
+[node name="book_detector" type="RayCast3D" parent="SpringArm3D/Camera3D" index="0" unique_id=543363602]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0)
+target_position = Vector3(0, -15, 0)
+collision_mask = 8
+collide_with_areas = true
+debug_shape_thickness = 5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="4" unique_id=1745525035]
+follow_viewport_enabled = true
+follow_viewport_scale = 0.1
+
+[node name="arrow" type="Control" parent="CanvasLayer" index="0" unique_id=896400679]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/arrow" index="0" unique_id=456340854]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_lwtqh")
