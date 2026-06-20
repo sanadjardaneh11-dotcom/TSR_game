@@ -57,7 +57,7 @@ volumetric_fog_length = 32.0
 [node name="chargame" unique_id=792586188 instance=ExtResource("1_sd786")]
 script = ExtResource("1_whmwu")
 
-[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(446465690) index="0" unique_id=1857686621]
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1402587268) index="0" unique_id=1338812446]
 bones/0/position = Vector3(-6.5600864e-24, 3.6000001, 0.1)
 bones/0/rotation = Quaternion(0.017226925, -1.0996164e-17, -1.0996164e-17, 0.9998517)
 bones/1/rotation = Quaternion(-0.0028066589, 1.8181949e-18, 1.8172929e-18, 0.99999607)
@@ -80,7 +80,7 @@ bones/14/rotation = Quaternion(0.031170737, -0.00037958438, 0.031147057, 0.99902
 bones/15/rotation = Quaternion(-0.055456623, 3.5731663e-08, -0.031065563, 0.99797773)
 bones/16/rotation = Quaternion(0.6727643, 1.8710503e-10, -0.0015313369, 0.7398553)
 
-[node name="AnimationTree" type="AnimationTree" parent="AnimationPlayer" parent_id_path=PackedInt32Array(1530536318) index="0" unique_id=1850525101]
+[node name="AnimationTree" type="AnimationTree" parent="AnimationPlayer" parent_id_path=PackedInt32Array(567723064) index="0" unique_id=1850525101]
 root_node = NodePath("../..")
 tree_root = SubResource("AnimationNodeStateMachine_78to8")
 anim_player = NodePath("..")
@@ -101,7 +101,7 @@ environment = SubResource("Environment_470aa")
 
 [node name="book_detector" type="RayCast3D" parent="SpringArm3D/Camera3D" index="0" unique_id=543363602]
 transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0)
-target_position = Vector3(0, -15, 0)
+target_position = Vector3(0, -30, 0)
 collision_mask = 8
 collide_with_areas = true
 debug_shape_thickness = 5
