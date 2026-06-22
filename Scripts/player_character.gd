@@ -21,9 +21,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if book_detector.is_colliding() == true:
 		arrow.texture = ARROW_SELECTED
-		var book = book_detector.get_collider().get_parent()
-		print(book.name)
-		book.position = position
 	else:arrow.texture = ARROW
 	velocity_on_a_plane = Input.get_vector("ui_left","ui_right","ui_up","ui_down")*speed
 	velocity += Vector3(velocity_on_a_plane.x,0,velocity_on_a_plane.y).rotated(Vector3.UP, camera.rotation.y)*delta
@@ -46,4 +43,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		mesh.rotation.y = camera.rotation.y
 	
 func book_read():
-	print("read book")
+	var book = book_detector.get_collider().get_parent()
+	book.position = position
+	print("read:"+book.name)
+	
