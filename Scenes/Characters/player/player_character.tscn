@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b60g5k7h3ksfn" path="res://Assets/chargame/chargame.glb" id="1_sd786"]
 [ext_resource type="Script" uid="uid://otrww6u4smr7" path="res://Scripts/player_character.gd" id="1_whmwu"]
+[ext_resource type="Environment" uid="uid://cvomkn4svjequ" path="res://Assets/chargame/cam.tres" id="3_6gnr4"]
 [ext_resource type="Texture2D" uid="uid://dpltywfej40xp" path="res://Assets/UI/arrow.tres" id="3_lwtqh"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sd786"]
@@ -47,17 +48,10 @@ height = 5.4658203
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6gnr4"]
 
-[sub_resource type="Environment" id="Environment_470aa"]
-glow_enabled = true
-glow_normalized = true
-fog_depth_curve = 3.8637474
-volumetric_fog_enabled = true
-volumetric_fog_length = 32.0
-
 [node name="chargame" unique_id=792586188 instance=ExtResource("1_sd786")]
 script = ExtResource("1_whmwu")
 
-[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1402587268) index="0" unique_id=1338812446]
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(748260078) index="0" unique_id=637139300]
 bones/0/position = Vector3(-6.5600864e-24, 3.6000001, 0.1)
 bones/0/rotation = Quaternion(0.017226925, -1.0996164e-17, -1.0996164e-17, 0.9998517)
 bones/1/rotation = Quaternion(-0.0028066589, 1.8181949e-18, 1.8172929e-18, 0.99999607)
@@ -80,7 +74,11 @@ bones/14/rotation = Quaternion(0.031170737, -0.00037958438, 0.031147057, 0.99902
 bones/15/rotation = Quaternion(-0.055456623, 3.5731663e-08, -0.031065563, 0.99797773)
 bones/16/rotation = Quaternion(0.6727643, 1.8710503e-10, -0.0015313369, 0.7398553)
 
-[node name="AnimationTree" type="AnimationTree" parent="AnimationPlayer" parent_id_path=PackedInt32Array(567723064) index="0" unique_id=1850525101]
+[node name="Camera3D" type="Camera3D" parent="Armature" parent_id_path=PackedInt32Array(748260078) index="1" unique_id=1223873447]
+transform = Transform3D(1, 0, 0, 0, 0.955793, 0.29404032, 0, -0.29404032, 0.955793, 0, 5.2212586, -0.17118931)
+environment = ExtResource("3_6gnr4")
+
+[node name="AnimationTree" type="AnimationTree" parent="AnimationPlayer" parent_id_path=PackedInt32Array(1364970484) index="0" unique_id=1850525101]
 root_node = NodePath("../..")
 tree_root = SubResource("AnimationNodeStateMachine_78to8")
 anim_player = NodePath("..")
@@ -96,8 +94,8 @@ shape = SubResource("SphereShape3D_6gnr4")
 spring_length = 9.0
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D" index="0" unique_id=1557871599]
-transform = Transform3D(1, 0, 0, 0, 0.965926, -0.2588191, 0, 0.2588191, 0.965926, 0, -0.52016234, 4.459919)
-environment = SubResource("Environment_470aa")
+transform = Transform3D(1, 0, 0, 0, 0.96592593, -0.2588191, 0, 0.2588191, 0.96592593, 0, -0.52016234, 4.459919)
+environment = ExtResource("3_6gnr4")
 
 [node name="book_detector" type="RayCast3D" parent="SpringArm3D/Camera3D" index="0" unique_id=543363602]
 transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0)
@@ -132,3 +130,8 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_lwtqh")
+
+[node name="booktimer" type="Timer" parent="." index="5" unique_id=785369618]
+one_shot = true
+
+[connection signal="timeout" from="booktimer" to="." method="_on_booktimer_timeout"]
