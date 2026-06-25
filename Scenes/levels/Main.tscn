@@ -54,3 +54,4 @@ shape = SubResource("ConcavePolygonShape3D_itpvm")
 
 [node name="book" parent="." unique_id=1056298652 instance=ExtResource("3_itpvm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -16)
+text = "Blarge spell"
