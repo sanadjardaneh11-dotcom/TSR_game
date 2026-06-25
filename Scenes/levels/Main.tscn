@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bmmokbgg3kajo" path="res://Scripts/main.gd" id="1_r150o"]
 [ext_resource type="PackedScene" uid="uid://duwxj653872ib" path="res://Scenes/Characters/player/player_character.tscn" id="2_3toqo"]
 [ext_resource type="PackedScene" uid="uid://dnhsgpnhqgy0n" path="res://Scenes/UI/book.tscn" id="3_itpvm"]
+[ext_resource type="PackedScene" uid="uid://bh47o6xa25qo" path="res://Scenes/UI/bookshelfbuilder.tscn" id="4_htofc"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_bd11h"]
 
@@ -55,3 +56,9 @@ shape = SubResource("ConcavePolygonShape3D_itpvm")
 [node name="book" parent="." unique_id=1056298652 instance=ExtResource("3_itpvm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -16)
 text = "Blarge spell"
+
+[node name="bookshelfbuilder" parent="." unique_id=187108291 instance=ExtResource("4_htofc")]
+data = {
+"cells": PackedInt32Array(65535, 65527, 1441792, 0, 65527, 1441792, 65534, 65527, 1441792, 1, 65527, 1441792, 2, 65527, 1441792, 65533, 65527, 1441795, 131070, 65527, 1441792, 131071, 65527, 1441792, 65537, 65527, 1441792, 65536, 65527, 1441792, 65538, 65527, 1441792, 131074, 65527, 1441792, 131073, 65527, 1441792, 131072, 65527, 1441792, 196607, 65527, 1441792, 196606, 65527, 1441792, 131069, 65527, 1441795, 196605, 65527, 1441795, 3, 65527, 1441794, 65539, 65527, 1441794, 131075, 65527, 1441794, 196610, 65527, 1441792, 196609, 65527, 1441792, 196608, 65527, 1441792, 262143, 65527, 1441792, 262142, 65527, 1441792, 327678, 65527, 1441796, 327679, 65527, 1441793, 262144, 65527, 1441793, 262145, 65527, 1441793, 262146, 65527, 1441797, 262141, 65527, 1441795, 196611, 65527, 1441794)
+}
+metadata/_editor_floor_ = Vector3(0, 0, -9)
