@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action("ui_accept"):
-		if book_detector.is_colliding() == true:
+		if book_detector.is_colliding() == true and readingbook == false:
 			book_read()
 	if event.is_action("ui_cancel"):
 		if readingbook== true:
