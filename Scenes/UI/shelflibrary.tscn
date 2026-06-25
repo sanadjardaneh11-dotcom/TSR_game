@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://boecnp4vixsfj"]
+
+[ext_resource type="PackedScene" uid="uid://cwxv6g7ia5pik" path="res://Assets/bookshelf.glb" id="1_55wv3"]
+
+[node name="shelflibrary" unique_id=766268516 instance=ExtResource("1_55wv3")]

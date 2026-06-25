@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bmmokbgg3kajo" path="res://Scripts/main.gd" id="1_r150o"]
 [ext_resource type="PackedScene" uid="uid://duwxj653872ib" path="res://Scenes/Characters/player/player_character.tscn" id="2_3toqo"]
-[ext_resource type="PackedScene" uid="uid://dnhsgpnhqgy0n" path="res://Scenes/book.tscn" id="3_itpvm"]
+[ext_resource type="PackedScene" uid="uid://dnhsgpnhqgy0n" path="res://Scenes/UI/book.tscn" id="3_itpvm"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_bd11h"]
 
