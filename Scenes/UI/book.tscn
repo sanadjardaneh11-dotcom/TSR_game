@@ -4,6 +4,13 @@
 [ext_resource type="FontFile" uid="uid://ckpiul8lxwrs0" path="res://Assets/MathJax_Fraktur-Regular.otf" id="1_rhhov"]
 [ext_resource type="Script" uid="uid://m0031bspnpk4" path="res://Scripts/book.gd" id="2_g74n1"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g74n1"]
+load_path = "res://.godot/imported/book template.png-67aa116a9ad0362f31ae49f81480e964.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jng8n"]
+albedo_texture = SubResource("CompressedTexture2D_g74n1")
+texture_filter = 0
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_g74n1"]
 size = Vector3(1.9658508, 6.317627, 4.2265625)
 
@@ -15,7 +22,13 @@ script = ExtResource("2_g74n1")
 bones/0/rotation = Quaternion(-0.70455575, 0.06000984, 0.06000967, 0.70455575)
 bones/1/rotation = Quaternion(-0.70455575, -0.06000984, -0.06000967, 0.70455575)
 
-[node name="Label3D" type="Label3D" parent="Armature/Skeleton3D/pages" parent_id_path=PackedInt32Array(1400284611) index="0" unique_id=606124351]
+[node name="cover" parent="Armature/Skeleton3D" index="0" unique_id=251228851]
+surface_material_override/0 = SubResource("StandardMaterial3D_jng8n")
+
+[node name="pages" parent="Armature/Skeleton3D" index="1" unique_id=1400284611]
+surface_material_override/0 = SubResource("StandardMaterial3D_jng8n")
+
+[node name="Label3D" type="Label3D" parent="Armature/Skeleton3D/pages" index="0" unique_id=606124351]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.01, 0)
 text = "Null"
 font = ExtResource("1_rhhov")
