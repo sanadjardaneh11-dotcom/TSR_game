@@ -54,7 +54,7 @@ mesh = SubResource("PrismMesh_3toqo")
 shape = SubResource("ConcavePolygonShape3D_itpvm")
 
 [node name="book" parent="." unique_id=1056298652 instance=ExtResource("3_itpvm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.2967744, -16.636503)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 5.2967744, -16.636503)
 text = "Blarge spell"
 
 [node name="bookshelfbuilsder" parent="." unique_id=187108291 instance=ExtResource("4_htofc")]

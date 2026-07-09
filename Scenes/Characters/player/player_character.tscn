@@ -89,7 +89,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7329102, 0)
 shape = SubResource("CapsuleShape3D_lwtqh")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="." index="3" unique_id=140305961]
-transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.42261827, 0, -0.42261827, 0.90630776, 0, 4.0852785, 0)
+transform = Transform3D(1, 0, 0, 0, 0.9063077, 0.42261827, 0, -0.42261827, 0.9063077, 0, 4.0852785, 0)
 shape = SubResource("SphereShape3D_6gnr4")
 spring_length = 9.0
 
@@ -103,6 +103,9 @@ target_position = Vector3(0, -30, 0)
 collision_mask = 8
 collide_with_areas = true
 debug_shape_thickness = 5
+
+[node name="Marker3D" type="Marker3D" parent="SpringArm3D/Camera3D" index="1" unique_id=129703429]
+transform = Transform3D(1, 0, 0, 0, 0.9848074, -0.17364815, 0, 0.17364815, 0.9848074, 0, -0.05355692, -0.93721294)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="4" unique_id=1745525035]
 follow_viewport_enabled = true

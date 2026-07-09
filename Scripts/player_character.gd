@@ -1,5 +1,5 @@
 extends CharacterBody3D
-@export var camera_speed:float = 0.1
+@export var camera_speed:float = 0.01
 @export var speed:float = 100
 @export var max_speed:float = 100
 @export var friction:float = 1.1
@@ -8,6 +8,7 @@ extends CharacterBody3D
 @onready var tree = $AnimationPlayer/AnimationTree
 @onready var state = $AnimationPlayer/AnimationTree.get("parameters/playback")
 @onready var mesh: Node3D = $Armature
+@onready var book_reading_position:Node3D = $SpringArm3D/Camera3D/Marker3D
 @onready var book_detector: RayCast3D = $SpringArm3D/Camera3D/book_detector
 @onready var arrow: TextureRect = $CanvasLayer/arrow/TextureRect
 @onready var booktimer: Timer = $booktimer
@@ -15,6 +16,7 @@ extends CharacterBody3D
 const ARROW = preload("uid://dpltywfej40xp")
 const ARROW_SELECTED = preload("uid://bgrsvh3jk7p2e")
 var book = -1
+var uldbookpos:Vector3
 var readbook:bool = false
 var readingbook:bool = false
 var velocity_on_a_plane = Vector2(0,0)
@@ -37,13 +39,14 @@ func _physics_process(delta: float) -> void:
 	velocity /= friction
 	tree.set("parameters/walk/blend_position", Vector2(velocity.x,velocity.z).rotated(camera.rotation.y))
 	if readbook == true and readingbook == true:
-		fpcam.current = true
-		book.position.x = lerpf(book.position.x,position.x,(booktime-booktimer.time_left)/booktime)
-		book.position.y = lerpf(book.position.y,position.y,(booktime-booktimer.time_left)/booktime)
-		book.position.z = lerpf(book.position.z,position.z,(booktime-booktimer.time_left)/booktime)
-		book.rotation.x = lerpf(book.rotation.x,deg_to_rad(90.00),(booktime-booktimer.time_left)/booktime)
-		book.rotation.y = lerpf(book.rotation.y,camera.rotation.y,(booktime-booktimer.time_left)/booktime)
-		book.position += Vector3(0,4,-3).rotated(Vector3.UP,mesh.rotation.y)
+		#fpcam.current = true
+		var bookrp = book_reading_position.global_position
+		book.position.x = lerpf(book.position.x,bookrp.x,(booktime-booktimer.time_left)/booktime)
+		book.position.y = lerpf(book.position.y,bookrp.y,(booktime-booktimer.time_left)/booktime)
+		book.position.z = lerpf(book.position.z,bookrp.z,(booktime-booktimer.time_left)/booktime)
+		book.rotation.x = lerpf(book.rotation.x,camera.rotation.x+deg_to_rad(45),(booktime-booktimer.time_left)/booktime)
+		book.rotation.y = lerpf(book.rotation.y,camera.rotation.y+deg_to_rad(180),(booktime-booktimer.time_left)/booktime)
+
 	
 	
 	move_and_slide()
@@ -55,6 +58,8 @@ func _input(event: InputEvent) -> void:
 	if event.is_action("ui_cancel"):
 		if readingbook== true:
 			camera.get_child(0).current = true
+			book.playanimation("close")
+			book.returnbook(booktime,uldbookpos)
 			readingbook = false
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -66,12 +71,14 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 func book_read():
 	book = book_detector.get_collider().get_parent()
+	uldbookpos = book.position
 	booktimer.wait_time = booktime
 	readbook = true
 	readingbook=true
+	book.playanimation("open")
 	booktimer.start()
 	print("read:"+book.name)
-	
+
 
 
 func _on_booktimer_timeout() -> void:

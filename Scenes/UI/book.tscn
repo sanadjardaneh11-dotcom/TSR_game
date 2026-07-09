@@ -1,29 +1,36 @@
 [gd_scene format=3 uid="uid://dnhsgpnhqgy0n"]
 
-[ext_resource type="Script" uid="uid://m0031bspnpk4" path="res://Scenes/levels/book.gd" id="1_khdek"]
+[ext_resource type="PackedScene" uid="uid://bf1xg5gpx4jew" path="res://Assets/book.glb" id="1_hhvxv"]
 [ext_resource type="FontFile" uid="uid://ckpiul8lxwrs0" path="res://Assets/MathJax_Fraktur-Regular.otf" id="1_rhhov"]
+[ext_resource type="Script" uid="uid://m0031bspnpk4" path="res://Scripts/book.gd" id="2_g74n1"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_khdek"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_g74n1"]
+size = Vector3(1.9658508, 6.317627, 4.2265625)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_rhhov"]
-size = Vector3(2.4332275, 1, 2.3813477)
+[node name="book" unique_id=653125525 instance=ExtResource("1_hhvxv")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+script = ExtResource("2_g74n1")
 
-[node name="book" type="Node3D" unique_id=1056298652]
-script = ExtResource("1_khdek")
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1174760198) index="0" unique_id=264684464]
+bones/0/rotation = Quaternion(-0.70455575, 0.06000984, 0.06000967, 0.70455575)
+bones/1/rotation = Quaternion(-0.70455575, -0.06000984, -0.06000967, 0.70455575)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=432528910]
-mesh = SubResource("PlaneMesh_khdek")
-
-[node name="Label3D" type="Label3D" parent="MeshInstance3D" unique_id=428116328]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.01, 0)
+[node name="Label3D" type="Label3D" parent="Armature/Skeleton3D/pages" parent_id_path=PackedInt32Array(1400284611) index="0" unique_id=606124351]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.01, 0)
 text = "Null"
 font = ExtResource("1_rhhov")
 autowrap_mode = 2
 width = 450.0
 
-[node name="Area3D" type="Area3D" parent="." unique_id=1008030573]
+[node name="Area3D" type="Area3D" parent="." index="2" unique_id=1991050924]
 collision_layer = 8
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1124045448]
-shape = SubResource("BoxShape3D_rhhov")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=1924586440]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.041519165, -0.029418945, 0.052246094)
+shape = SubResource("BoxShape3D_g74n1")
+
+[node name="booktimer" type="Timer" parent="." index="3" unique_id=1324306878]
+one_shot = true
+
+[connection signal="timeout" from="booktimer" to="." method="_on_booktimer_timeout"]
