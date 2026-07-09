@@ -71,6 +71,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 func book_read():
 	book = book_detector.get_collider().get_parent()
+	if book.returning == true:
+		return
 	uldbookpos = book.position
 	booktimer.wait_time = booktime
 	readbook = true
