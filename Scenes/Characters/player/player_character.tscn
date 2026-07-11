@@ -3,7 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://b60g5k7h3ksfn" path="res://Assets/chargame/chargame.glb" id="1_sd786"]
 [ext_resource type="Script" uid="uid://otrww6u4smr7" path="res://Scripts/player_character.gd" id="1_whmwu"]
 [ext_resource type="Environment" uid="uid://cvomkn4svjequ" path="res://Assets/chargame/cam.tres" id="3_6gnr4"]
-[ext_resource type="Texture2D" uid="uid://dpltywfej40xp" path="res://Assets/UI/arrow.tres" id="3_lwtqh"]
+[ext_resource type="Texture2D" uid="uid://c8iftsmvdya3o" path="res://Assets/UI/arrow.png" id="4_470aa"]
+[ext_resource type="LabelSettings" uid="uid://b4c2ocohj0dl7" path="res://Assets/UI/TempUiText.tres" id="5_470aa"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sd786"]
 animation = &"walkL"
@@ -48,6 +49,7 @@ height = 5.4658203
 [sub_resource type="SphereShape3D" id="SphereShape3D_6gnr4"]
 
 [node name="chargame" unique_id=792586188 instance=ExtResource("1_sd786")]
+collision_mask = 12
 script = ExtResource("1_whmwu")
 
 [node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(748260078) index="0" unique_id=637139300]
@@ -56,22 +58,22 @@ bones/0/rotation = Quaternion(0.017226925, -1.0996165e-17, -1.0996165e-17, 0.999
 bones/1/rotation = Quaternion(-0.0028066589, 1.8181949e-18, 1.817293e-18, 0.99999607)
 bones/2/rotation = Quaternion(0.06957627, -1.117517e-16, -1.0983332e-16, 0.99757665)
 bones/3/rotation = Quaternion(-0.3385002, 1.12171925e-07, -4.0352365e-08, 0.9409663)
-bones/4/position = Vector3(0.29008302, 0.5777135, -0.03390896)
-bones/4/rotation = Quaternion(0.86620593, 0.4994791, -0.0072036, 0.012492593)
+bones/4/position = Vector3(0.2904032, 0.58137167, -0.034014497)
+bones/4/rotation = Quaternion(0.8673166, 0.49754784, -0.007175748, 0.012508612)
 bones/5/rotation = Quaternion(-0.048259925, -0.017603764, 0.45738265, 0.88778496)
 bones/6/rotation = Quaternion(0.09937846, -0.022002222, 0.019293394, 0.9946193)
-bones/7/position = Vector3(-0.29008302, 0.5777135, -0.03390896)
-bones/7/rotation = Quaternion(0.86620593, -0.4994791, 0.0072036, 0.012492593)
+bones/7/position = Vector3(-0.2904032, 0.58137167, -0.034014497)
+bones/7/rotation = Quaternion(0.8673166, -0.49754784, 0.007175748, 0.012508612)
 bones/8/rotation = Quaternion(-0.048259918, 0.017603748, -0.45738265, 0.887785)
 bones/9/rotation = Quaternion(0.09937846, 0.02200222, -0.01929339, 0.9946193)
 bones/11/position = Vector3(0.29999998, 0.49999985, -3.5346515e-09)
-bones/11/rotation = Quaternion(0.070522904, -0.012404814, -0.03232981, 0.99690896)
-bones/12/rotation = Quaternion(-0.05806437, -8.154626e-05, 0.031059518, 0.99782956)
-bones/13/rotation = Quaternion(0.6700346, -2.0388438e-10, 0.0015251237, 0.74232835)
+bones/11/rotation = Quaternion(0.0009023978, -0.015496651, -0.029404176, 0.99944705)
+bones/12/rotation = Quaternion(-0.11747828, -0.001941884, 0.030863885, 0.9925939)
+bones/13/rotation = Quaternion(0.60423934, 3.0085753e-11, 0.001375361, 0.79680175)
 bones/13/scale = Vector3(1, 1, 1.0000001)
-bones/14/rotation = Quaternion(-0.008246485, -0.013060164, 0.03327709, 0.9993268)
-bones/15/rotation = Quaternion(-0.12454961, 0.0021637124, -0.030833155, 0.9917318)
-bones/16/rotation = Quaternion(0.6119999, -1.3161425e-10, -0.0013930254, 0.79085666)
+bones/14/rotation = Quaternion(0.061411534, -0.016337482, 0.030276928, 0.9975195)
+bones/15/rotation = Quaternion(-0.06517459, 0.00030385272, -0.031041961, 0.9973909)
+bones/16/rotation = Quaternion(0.66451037, 2.2325927e-10, -0.0015125492, 0.74727756)
 
 [node name="Camera3D" type="Camera3D" parent="Armature" parent_id_path=PackedInt32Array(748260078) index="1" unique_id=1223873447]
 transform = Transform3D(1, 0, 0, 0, 0.955793, 0.29404032, 0, -0.29404032, 0.955793, 0, 5.2212586, -0.17118931)
@@ -108,17 +110,18 @@ transform = Transform3D(1, 0, 0, 0, 0.9848074, -0.17364815, 0, 0.17364815, 0.984
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="4" unique_id=1745525035]
 follow_viewport_enabled = true
-follow_viewport_scale = 0.1
 
-[node name="arrow" type="Control" parent="CanvasLayer" index="0" unique_id=896400679]
+[node name="ui" type="Control" parent="CanvasLayer" index="0" unique_id=896400679]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/arrow" index="0" unique_id=456340854]
+[node name="crossair" type="TextureRect" parent="CanvasLayer/ui" index="0" unique_id=456340854]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -131,7 +134,27 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_lwtqh")
+texture = ExtResource("4_470aa")
+stretch_mode = 3
+
+[node name="Heath" type="HBoxContainer" parent="CanvasLayer/ui" index="1" unique_id=897989196]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="maxhp" type="Label" parent="CanvasLayer/ui/Heath" index="0" unique_id=68834197]
+layout_mode = 2
+text = "Maxhp/"
+label_settings = ExtResource("5_470aa")
+
+[node name="hp" type="Label" parent="CanvasLayer/ui/Heath" index="1" unique_id=1066526788]
+layout_mode = 2
+text = "hp"
+label_settings = ExtResource("5_470aa")
 
 [node name="booktimer" type="Timer" parent="." index="5" unique_id=785369618]
 one_shot = true

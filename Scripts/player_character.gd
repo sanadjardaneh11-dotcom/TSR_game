@@ -10,19 +10,29 @@ extends CharacterBody3D
 @onready var mesh: Node3D = $Armature
 @onready var book_reading_position:Node3D = $SpringArm3D/Camera3D/Marker3D
 @onready var book_detector: RayCast3D = $SpringArm3D/Camera3D/book_detector
-@onready var arrow: TextureRect = $CanvasLayer/arrow/TextureRect
+@onready var arrow: TextureRect = $CanvasLayer/ui/crossair
+@onready var heathdisplay = [$CanvasLayer/ui/Heath/maxhp, $CanvasLayer/ui/Heath/hp]
 @onready var booktimer: Timer = $booktimer
 @export var booktime:float = 2
-const ARROW = preload("uid://dpltywfej40xp")
-const ARROW_SELECTED = preload("uid://bgrsvh3jk7p2e")
+const ARROW = preload("uid://c8iftsmvdya3o")
+const ARROW_SELECTED = preload("uid://10adgrd0va8k")
 var book = -1
 var uldbookpos:Vector3
 var readbook:bool = false
 var readingbook:bool = false
 var velocity_on_a_plane = Vector2(0,0)
+var hp:float
+var savedata = {}
+var file = file_control.new()
+var maxhp:float
 func _ready() -> void:
 	camera.get_child(0).current = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	savedata = file.load_json_file()
+	hp = savedata["hp"]
+	maxhp = savedata["maxhp"]
+	heathdisplay[0].text = str(int(maxhp))+"/"
+	heathdisplay[1].text = str(int(hp))
 
 
 func _physics_process(delta: float) -> void:
@@ -73,6 +83,7 @@ func book_read():
 	book = book_detector.get_collider().get_parent()
 	if book.returning == true:
 		return
+	book.label.show()
 	uldbookpos = book.position
 	booktimer.wait_time = booktime
 	readbook = true

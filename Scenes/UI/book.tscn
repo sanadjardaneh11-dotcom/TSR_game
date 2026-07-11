@@ -18,18 +18,18 @@ size = Vector3(1.9658508, 6.317627, 4.2265625)
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 script = ExtResource("2_g74n1")
 
-[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1174760198) index="0" unique_id=264684464]
-bones/0/rotation = Quaternion(-0.70455575, 0.06000984, 0.06000967, 0.70455575)
-bones/1/rotation = Quaternion(-0.70455575, -0.06000984, -0.06000967, 0.70455575)
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1929689300) index="0" unique_id=294724]
+bones/0/rotation = Quaternion(-0.62795997, 0.32506374, 0.32506356, 0.6279599)
+bones/1/rotation = Quaternion(-0.62795997, -0.32506374, -0.32506356, 0.6279599)
 
-[node name="cover" parent="Armature/Skeleton3D" index="0" unique_id=251228851]
-surface_material_override/0 = SubResource("StandardMaterial3D_jng8n")
+[node name="cover" parent="Armature/Skeleton3D" index="0" unique_id=1858180122]
+material_override = SubResource("StandardMaterial3D_jng8n")
 
-[node name="pages" parent="Armature/Skeleton3D" index="1" unique_id=1400284611]
-surface_material_override/0 = SubResource("StandardMaterial3D_jng8n")
+[node name="pages" parent="Armature/Skeleton3D" index="1" unique_id=1857851133]
+material_override = SubResource("StandardMaterial3D_jng8n")
 
 [node name="Label3D" type="Label3D" parent="Armature/Skeleton3D/pages" index="0" unique_id=606124351]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.01, 0)
+transform = Transform3D(-0.70710665, 0, -0.70710665, 0, 0.99999976, 0, 0.70710665, 0, -0.70710665, 1.2972982, 2.233857, 0.3283282)
 text = "Null"
 font = ExtResource("1_rhhov")
 autowrap_mode = 2

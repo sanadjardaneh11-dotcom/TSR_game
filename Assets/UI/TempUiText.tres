@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://b4c2ocohj0dl7"]
+
+[ext_resource type="FontFile" uid="uid://bcesyq484sc00" path="res://Assets/MathJax_Main-Regular.otf" id="1_tmsq4"]
+
+[resource]
+font = ExtResource("1_tmsq4")
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)

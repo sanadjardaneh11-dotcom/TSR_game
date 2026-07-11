@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://di8l53w1sefi3"
-path.s3tc="res://.godot/imported/book template.png-67aa116a9ad0362f31ae49f81480e964.s3tc.ctex"
+path.s3tc="res://.godot/imported/book template.png-6a5790b4a59834f17563c140e8694642.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/textures/book template.png"
-dest_files=["res://.godot/imported/book template.png-67aa116a9ad0362f31ae49f81480e964.s3tc.ctex"]
+source_file="res://Assets/textures/Books/book template.png"
+dest_files=["res://.godot/imported/book template.png-6a5790b4a59834f17563c140e8694642.s3tc.ctex"]
 
 [params]
 
