@@ -14,6 +14,150 @@ texture_filter = 0
 [sub_resource type="BoxShape3D" id="BoxShape3D_g74n1"]
 size = Vector3(1.9658508, 6.317627, 4.2265625)
 
+[sub_resource type="Animation" id="Animation_36sip"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Text/Leftside:position:z")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Text/Leftside:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Text/Leftside:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Text/Leftside:rotation:z")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Text/Leftside:rotation:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Text/Leftside:rotation:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_g74n1"]
+resource_name = "textopen"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Text/Leftside:position:z")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.033333335, 0, 0, 0, 0.4, -0.13333334, -0.06666667, 0, 0),
+"times": PackedFloat32Array(0, 0.2, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Text/Leftside:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.033333335, 0, 0, 0, 0, -0.13333334, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.2, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Text/Leftside:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.033333335, 0, 0, 0, 1.4, -0.13333334, -0.23333335, 0, 0),
+"times": PackedFloat32Array(0, 0.2, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Text/Leftside:rotation:z")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.033333335, 0, 0, 0, 0, -0.13333334, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.2, 1)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Text/Leftside:rotation:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.033333335, 0, 0, 0, -0.7853982, -0.13333334, 0.13089971, 0, 0),
+"times": PackedFloat32Array(0, 0.2, 1)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Text/Leftside:rotation:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.033333335, 0, 0, 0, 0, -0.13333334, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.2, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_36sip"]
+_data = {
+&"RESET": SubResource("Animation_36sip"),
+&"textopen": SubResource("Animation_g74n1")
+}
+
 [node name="book" unique_id=653125525 instance=ExtResource("1_hhvxv")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 script = ExtResource("2_g74n1")
@@ -28,13 +172,6 @@ material_override = SubResource("StandardMaterial3D_jng8n")
 [node name="pages" parent="Armature/Skeleton3D" index="1" unique_id=1857851133]
 material_override = SubResource("StandardMaterial3D_jng8n")
 
-[node name="Label3D" type="Label3D" parent="Armature/Skeleton3D/pages" index="0" unique_id=606124351]
-transform = Transform3D(-0.70710665, 0, -0.70710665, 0, 0.99999976, 0, 0.70710665, 0, -0.70710665, 1.2972982, 2.233857, 0.3283282)
-text = "Null"
-font = ExtResource("1_rhhov")
-autowrap_mode = 2
-width = 450.0
-
 [node name="Area3D" type="Area3D" parent="." index="2" unique_id=1991050924]
 collision_layer = 8
 collision_mask = 0
@@ -45,5 +182,28 @@ shape = SubResource("BoxShape3D_g74n1")
 
 [node name="booktimer" type="Timer" parent="." index="3" unique_id=1324306878]
 one_shot = true
+
+[node name="Text" type="Node3D" parent="." index="4" unique_id=1751514365]
+
+[node name="Leftside" type="Node3D" parent="Text" index="0" unique_id=929542882]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.99999976, 0, 0, 0, 0.9999998, 0, 0, 0)
+
+[node name="Title" type="Label3D" parent="Text/Leftside" index="0" unique_id=606124351]
+transform = Transform3D(-8.940697e-08, 0, -0.9999994, 0, 0.99999976, 0, 0.9999994, 0, -8.940697e-08, -0.04, 2.333, 0.24)
+text = "Null"
+font = ExtResource("1_rhhov")
+autowrap_mode = 2
+width = 450.0
+
+[node name="Body" type="Label3D" parent="Text/Leftside" index="1" unique_id=1714610239]
+transform = Transform3D(-8.940697e-08, 0, -0.9999994, 0, 0.99999976, 0, 0.9999994, 0, -8.940697e-08, -0.04, 1.966, 0.24)
+text = "This is the body text ill make it extra long so that you can see how it works in the body text: jaifj ampo pi jfpoakfm ipajm fpjoak fopak opfma pofk mopafk pajk fpok aopfj mkpoaifk poafk mpoafk poak fopak opfk aopfk aopf kapof kapof kaopf kapo k opk pok po ko lkop k pok po;lkp"
+font = ExtResource("1_rhhov")
+vertical_alignment = 0
+autowrap_mode = 2
+width = 650.0
+
+[node name="Textanimplayer" type="AnimationPlayer" parent="." index="5" unique_id=1257714183]
+libraries/ = SubResource("AnimationLibrary_36sip")
 
 [connection signal="timeout" from="booktimer" to="." method="_on_booktimer_timeout"]

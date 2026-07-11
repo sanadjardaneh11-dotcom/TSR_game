@@ -14,8 +14,8 @@ func _ready() -> void:
 	print("Loaded value"+str(savedata["settings"][0])+"to music")
 	sounds.value = savedata["settings"][1]
 	print("Loaded value"+str(savedata["settings"][1])+"to sounds")
-	res.value = savedata["resulution"]
-	print("Loaded value"+str(savedata["resulution"])+"to res")
+	res.value = savedata["settings"][2]
+	print("Loaded value"+str(savedata["settings"][2])+"to res")
 	dispmusic.text = str(music.value)
 	dispsounds.text = str(sounds.value)
 	dispres.text = str(res.value)
@@ -26,17 +26,27 @@ func _on_music_value_changed(value: float) -> void:
 	dispmusic.text = str(music.value) 
 	savedata["settings"][0] = music.value
 
+
 func _on_sounds_value_changed(value: float) -> void:
 	dispsounds.text = str(sounds.value) 
 	savedata["settings"][1] = sounds.value
 
+
 func _on_size_value_changed(value: float) -> void:
-	dispres.text = str(res.value)
-	savedata["resulution"] = res.value
+	if res.value == 5:
+		dispres.text = "Fullscreen"
+		savedata["settings"][3] = 1.0
+	else:
+		dispres.text = str(res.value)
+		savedata["settings"][3] = 0.0
+		savedata["settings"][2] = res.value
+
 	
 
 func _on_apply_pressed() -> void:
-	file_controls.change_res(savedata["resulution"],get_window())
+	file_controls.change_res(savedata["settings"][2],get_window())
+	if savedata["settings"][3] == 1.0:
+		file_controls.fullscreen(get_window())
 	file_controls.save_to_json_file(savedata)
 	
 

@@ -34,6 +34,14 @@ func save_to_json_file(data):
 	file.store_string(json_text)
 
 func change_res(scale,window):
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	window.content_scale_mode = window.CONTENT_SCALE_MODE_DISABLED
 	window.content_scale_factor =  scale
 	window.size = (Vector2i(screen[0]*scale,screen[1]*scale))
 	print("window size changed")
+
+func fullscreen(window):
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+	window.size = (Vector2i(screen[0]*304/45,screen[1]*304/45))
+	window.content_scale_factor =  304/45
+	window.content_scale_mode = window.CONTENT_SCALE_MODE_VIEWPORT

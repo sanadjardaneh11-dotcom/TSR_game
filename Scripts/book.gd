@@ -1,7 +1,8 @@
 extends Node3D
 @export var text:String
-@onready var label: Label3D = $Armature/Skeleton3D/pages/Label3D
+@onready var label: Label3D = $Text/Leftside/Title
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var textanimplayer: AnimationPlayer = $Textanimplayer
 @onready var booktimer: Timer = $booktimer
 @onready var cover: MeshInstance3D = $Armature/Skeleton3D/cover
 @onready var pages: MeshInstance3D = $Armature/Skeleton3D/pages
@@ -39,8 +40,10 @@ func playanimation(animation):
 	match animation:
 		"open":
 			animation_player.play("Bookopen")
+			textanimplayer.play("textopen")
 		"close":
 			animation_player.play_backwards("Bookopen")
+			textanimplayer.play_backwards("textopen")
 
 func change_texture(texture_no:int):
 	pages.material_override.albedo_texture = textures[texture_no]

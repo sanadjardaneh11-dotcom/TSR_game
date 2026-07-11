@@ -48,7 +48,7 @@ text = "Music"
 layout_mode = 2
 text = "Sounds"
 
-[node name="Label" type="Label" parent="settings/SliderSettings/Titles" unique_id=1048807924]
+[node name="Size" type="Label" parent="settings/SliderSettings/Titles" unique_id=1048807924]
 layout_mode = 2
 size_flags_vertical = 8
 text = "Size"
@@ -74,7 +74,7 @@ step = 0.1
 layout_mode = 2
 size_flags_vertical = 10
 min_value = 1.0
-max_value = 4.0
+max_value = 5.0
 value = 1.0
 
 [node name="Display value" type="VBoxContainer" parent="settings/SliderSettings" unique_id=57751346]
@@ -89,6 +89,16 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Size" type="Label" parent="settings/SliderSettings/Display value" unique_id=390506193]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+
+[node name="Other settings" type="HBoxContainer" parent="settings" unique_id=1355174632]
+layout_mode = 2
+
+[node name="Titles" type="VBoxContainer" parent="settings/Other settings" unique_id=268810731]
+layout_mode = 2
+
+[node name="Fullscreen" type="Label" parent="settings/Other settings/Titles" unique_id=2147239055]
 layout_mode = 2
 
 [node name="Buttons" type="HBoxContainer" parent="settings" unique_id=853956989]
