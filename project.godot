@@ -66,6 +66,7 @@ ui_down={
 3d_physics/layer_2="Enemy"
 3d_physics/layer_3="Floor"
 3d_physics/layer_4="Book"
+3d_physics/layer_5="Lava"
 
 [physics]
 

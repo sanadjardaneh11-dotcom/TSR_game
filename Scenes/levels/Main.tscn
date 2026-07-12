@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://duwxj653872ib" path="res://Scenes/Characters/player/player_character.tscn" id="2_3toqo"]
 [ext_resource type="PackedScene" uid="uid://dnhsgpnhqgy0n" path="res://Scenes/UI/book.tscn" id="3_itpvm"]
 [ext_resource type="PackedScene" uid="uid://bh47o6xa25qo" path="res://Scenes/UI/bookshelfbuilder.tscn" id="4_htofc"]
+[ext_resource type="PackedScene" uid="uid://c736k42qsjpjq" path="res://Scenes/objects/spike.tscn" id="5_hbdc3"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_bd11h"]
 
@@ -91,3 +92,11 @@ text = "Leech spell"
 [node name="book8" parent="." unique_id=1046725875 instance=ExtResource("3_itpvm")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 4, 5.2967744, -16.636503)
 text = "Rempetal spell"
+
+[node name="spike" parent="." unique_id=803186902 instance=ExtResource("5_hbdc3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 1)
+damge = 1.0
+
+[node name="spike2" parent="." unique_id=1184700829 instance=ExtResource("5_hbdc3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2)
+damge = 1.0

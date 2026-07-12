@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c736k42qsjpjq"]
+
+[ext_resource type="Script" uid="uid://olqijlf312i1" path="res://Scenes/objects/spike.gd" id="1_4ictr"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_smnfx"]
+top_radius = 0.0
+height = 1.0
+radial_segments = 8
+rings = 0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_be30i"]
+radius = 0.1484375
+height = 0.8354492
+
+[node name="spike" type="Area3D" unique_id=803186902]
+collision_layer = 16
+collision_mask = 3
+script = ExtResource("1_4ictr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=133739500]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CylinderMesh_smnfx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=599418093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4177246, 0)
+shape = SubResource("CapsuleShape3D_be30i")

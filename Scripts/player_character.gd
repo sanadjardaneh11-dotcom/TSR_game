@@ -24,6 +24,7 @@ var velocity_on_a_plane = Vector2(0,0)
 var hp:float
 var savedata = {}
 var file = file_control.new()
+var damgecalc = DamageCalculations.new()
 var maxhp:float
 func _ready() -> void:
 	camera.get_child(0).current = true
@@ -36,6 +37,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	heathdisplay[0].text = str(int(maxhp))+"/"
+	heathdisplay[1].text = str(int(hp))
 	if book_detector.is_colliding() == true:
 		arrow.texture = ARROW_SELECTED
 	else:arrow.texture = ARROW
@@ -96,3 +99,8 @@ func book_read():
 
 func _on_booktimer_timeout() -> void:
 	readbook = false
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	hp-=damgecalc.damge(area.damge,0)
+	
