@@ -6,8 +6,11 @@ extends Node
 @onready var dispmusic: Label = $"settings/SliderSettings/Display value/Music"
 @onready var dispsounds: Label = $"settings/SliderSettings/Display value/Sounds"
 @onready var dispres: Label = $"settings/SliderSettings/Display value/Size"
+@onready var resetbutton: Button = $"settings/Other settings/VBoxContainer/reset"
 @onready var file_controls = file_control.new()
 var savedata:Dictionary
+var reset:bool = false
+var sureflag:bool = false
 func _ready() -> void:
 	savedata = file_controls.load_json_file()
 	music.value = savedata["settings"][0]
@@ -44,6 +47,10 @@ func _on_size_value_changed(value: float) -> void:
 	
 
 func _on_apply_pressed() -> void:
+	if reset == true:
+		file_controls.make_new_json_file()
+		get_tree().change_scene_to_file("res://Scenes/UI/Starting screen.tscn")
+		return
 	file_controls.change_res(savedata["settings"][2],get_window())
 	if savedata["settings"][3] == 1.0:
 		file_controls.fullscreen(get_window())
@@ -52,4 +59,16 @@ func _on_apply_pressed() -> void:
 
 
 func _on_quit_pressed() -> void:
+	
 	get_tree().change_scene_to_file("res://Scenes/UI/Starting screen.tscn")
+
+
+func _on_button_pressed() -> void:
+	if resetbutton == null:
+		return
+	if sureflag == true:
+		resetbutton.text = "Reset on apply"
+		reset = true
+	else:
+		sureflag = true
+		resetbutton.text = "You sure?"

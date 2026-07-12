@@ -98,8 +98,17 @@ layout_mode = 2
 [node name="Titles" type="VBoxContainer" parent="settings/Other settings" unique_id=268810731]
 layout_mode = 2
 
-[node name="Fullscreen" type="Label" parent="settings/Other settings/Titles" unique_id=2147239055]
+[node name="Reset File" type="Label" parent="settings/Other settings/Titles" unique_id=2147239055]
 layout_mode = 2
+text = "Reset File
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="settings/Other settings" unique_id=995454836]
+layout_mode = 2
+
+[node name="reset" type="Button" parent="settings/Other settings/VBoxContainer" unique_id=1825053559]
+layout_mode = 2
+text = "Reset"
 
 [node name="Buttons" type="HBoxContainer" parent="settings" unique_id=853956989]
 layout_mode = 2
@@ -117,5 +126,6 @@ text = "Quit
 [connection signal="value_changed" from="settings/SliderSettings/Values/Music" to="." method="_on_music_value_changed"]
 [connection signal="value_changed" from="settings/SliderSettings/Values/Sounds" to="." method="_on_sounds_value_changed"]
 [connection signal="value_changed" from="settings/SliderSettings/Values/Size" to="." method="_on_size_value_changed"]
+[connection signal="pressed" from="settings/Other settings/VBoxContainer/reset" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="settings/Buttons/Apply" to="." method="_on_apply_pressed"]
 [connection signal="pressed" from="settings/Buttons/Quit" to="." method="_on_quit_pressed"]
