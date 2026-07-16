@@ -1,8 +1,8 @@
 class_name DamageCalculations
 extends Resource
 
-func damagetaken(damage,armor) -> float:
-	return damage/((armor/100)+1)
+func damagetaken(damage,armor,endurance) -> float:
+	return damage/(((armor+(endurance**.6+1))/100)+1)
 
 func damagedelt(endurance,armor,strength,precision,wepon_damage):
 	var armour_weight_reduction:float = (((100-armor**(1/1.6))*((2/(endurance*.14+1))+1))/100)

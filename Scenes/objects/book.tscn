@@ -172,18 +172,28 @@ material_override = SubResource("StandardMaterial3D_jng8n")
 [node name="pages" parent="Armature/Skeleton3D" index="1" unique_id=1857851133]
 material_override = SubResource("StandardMaterial3D_jng8n")
 
-[node name="Area3D" type="Area3D" parent="." index="2" unique_id=1991050924]
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="2" unique_id=1233071865]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, -6.208816e-09, 0)
+collision_layer = 8
+collision_mask = 0
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1856562292]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0.04151916, -0.029418943, 0.052246094)
+shape = SubResource("BoxShape3D_g74n1")
+
+[node name="Area3D" type="Area3D" parent="." index="3" unique_id=1991050924]
 collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=1924586440]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.041519165, -0.029418945, 0.052246094)
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0.04151916, -0.029418943, 0.052246094)
 shape = SubResource("BoxShape3D_g74n1")
 
-[node name="booktimer" type="Timer" parent="." index="3" unique_id=1324306878]
+[node name="booktimer" type="Timer" parent="." index="4" unique_id=1324306878]
 one_shot = true
 
-[node name="Text" type="Node3D" parent="." index="4" unique_id=1751514365]
+[node name="Text" type="Node3D" parent="." index="5" unique_id=1751514365]
 
 [node name="Leftside" type="Node3D" parent="Text" index="0" unique_id=929542882]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.99999976, 0, 0, 0, 0.9999998, 0, 0, 0)
@@ -203,7 +213,7 @@ vertical_alignment = 0
 autowrap_mode = 2
 width = 650.0
 
-[node name="Textanimplayer" type="AnimationPlayer" parent="." index="5" unique_id=1257714183]
+[node name="Textanimplayer" type="AnimationPlayer" parent="." index="6" unique_id=1257714183]
 libraries/ = SubResource("AnimationLibrary_36sip")
 
 [connection signal="timeout" from="booktimer" to="." method="_on_booktimer_timeout"]

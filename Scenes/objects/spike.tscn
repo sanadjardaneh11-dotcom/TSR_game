@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c736k42qsjpjq"]
 
-[ext_resource type="Script" uid="uid://olqijlf312i1" path="res://Scenes/objects/spike.gd" id="1_4ictr"]
+[ext_resource type="Script" uid="uid://olqijlf312i1" path="res://Scripts/spike.gd" id="1_4ictr"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_smnfx"]
 top_radius = 0.0

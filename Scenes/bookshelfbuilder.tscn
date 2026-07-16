@@ -423,9 +423,11 @@ item/6/navigation_layers = 1
 item/6/preview = SubResource("ImageTexture_f1b15")
 metadata/_editor_source_scene = "res://Scenes/shelflibrary.tscn"
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_aqjxy"]
+
 [node name="bookshelfbuilder" type="GridMap" unique_id=187108291]
 mesh_library = SubResource("MeshLibrary_3upxl")
+physics_material = SubResource("PhysicsMaterial_aqjxy")
 cell_center_y = false
 collision_layer = 4
-collision_mask = 0
 metadata/_editor_floor_ = Vector3(0, 0, 0)
