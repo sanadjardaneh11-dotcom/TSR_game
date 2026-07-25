@@ -27,22 +27,22 @@ func _ready() -> void:
 
 func _on_music_value_changed(value: float) -> void:
 	dispmusic.text = str(music.value) 
-	savedata["settings"][0] = music.value
+	savedata["settings"][0] = float(music.value)
 
 
 func _on_sounds_value_changed(value: float) -> void:
 	dispsounds.text = str(sounds.value) 
-	savedata["settings"][1] = sounds.value
+	savedata["settings"][1] = float(sounds.value)
 
 
 func _on_size_value_changed(value: float) -> void:
 	if res.value == 5:
 		dispres.text = "Fullscreen"
-		savedata["settings"][3] = 1.0
+		savedata["settings"][3] = int(1)
 	else:
 		dispres.text = str(res.value)
-		savedata["settings"][3] = 0.0
-		savedata["settings"][2] = res.value
+		savedata["settings"][3] = int(0)
+		savedata["settings"][2] = int(res.value)
 
 	
 

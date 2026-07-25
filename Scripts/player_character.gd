@@ -9,7 +9,7 @@ extends CharacterBody3D
 @onready var state = $AnimationPlayer/AnimationTree.get("parameters/playback")
 @onready var mesh: Node3D = $Armature
 @onready var book_reading_position:Node3D = $SpringArm3D/Camera3D/Marker3D
-@onready var book_detector: RayCast3D = $SpringArm3D/Camera3D/book_detector
+@onready var general_perpose_detector: RayCast3D = $SpringArm3D/Camera3D/GeneralPerposeDetector
 @onready var arrow: TextureRect = $CanvasLayer/ui/crossair
 @onready var heathdisplay = [$CanvasLayer/ui/Heath/maxhp, $CanvasLayer/ui/Heath/hp]
 @onready var booktimer: Timer = $booktimer
@@ -39,7 +39,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	heathdisplay[0].text = str(int(maxhp))+"/"
 	heathdisplay[1].text = str(int(hp))
-	if book_detector.is_colliding() == true:
+	if general_perpose_detector.is_colliding() == true:
 		arrow.texture = ARROW_SELECTED
 	else:arrow.texture = ARROW
 	if readingbook == false:
@@ -66,7 +66,7 @@ func _physics_process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action("ui_accept"):
-		if book_detector.is_colliding() == true and readingbook == false:
+		if general_perpose_detector.is_colliding() == true and readingbook == false:
 			book_read()
 	if event.is_action("ui_cancel"):
 		if readingbook== true:
@@ -83,7 +83,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		mesh.rotation.y = camera.rotation.y
 	
 func book_read():
-	book = book_detector.get_collider().get_parent()
+	book = general_perpose_detector.get_collider().get_parent()
 	if book.returning == true:
 		return
 	book.label.show()
