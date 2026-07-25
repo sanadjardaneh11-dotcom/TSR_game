@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://c8iftsmvdya3o" path="res://Assets/UI/arrow.png" id="4_470aa"]
 [ext_resource type="LabelSettings" uid="uid://b4c2ocohj0dl7" path="res://Assets/UI/TempUiText.tres" id="5_470aa"]
 
+[sub_resource type="TextMesh" id="TextMesh_470aa"]
+text = "No staff mesh currently
+"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sd786"]
 animation = &"walkL"
 
@@ -32,6 +36,7 @@ blend_point_3/node = SubResource("AnimationNodeAnimation_470aa")
 blend_point_3/pos = Vector2(0, 1)
 blend_point_4/node = SubResource("AnimationNodeAnimation_r4bdn")
 blend_point_4/pos = Vector2(0, 0)
+sync = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sao83"]
 advance_mode = 2
@@ -58,22 +63,31 @@ bones/0/rotation = Quaternion(0.017226925, -1.0996165e-17, -1.0996165e-17, 0.999
 bones/1/rotation = Quaternion(-0.0028066589, 1.8181949e-18, 1.817293e-18, 0.99999607)
 bones/2/rotation = Quaternion(0.06957627, -1.117517e-16, -1.0983332e-16, 0.99757665)
 bones/3/rotation = Quaternion(-0.3385002, 1.12171925e-07, -4.0352365e-08, 0.9409663)
-bones/4/position = Vector3(0.2909122, 0.587187, -0.034182273)
-bones/4/rotation = Quaternion(0.86907357, 0.4944728, -0.0071313987, 0.0125339525)
+bones/4/position = Vector3(0.2900486, 0.57732034, -0.033897616)
+bones/4/rotation = Quaternion(0.86608636, 0.49968645, -0.0072065922, 0.012490868)
 bones/5/rotation = Quaternion(-0.048259925, -0.017603764, 0.45738265, 0.88778496)
 bones/6/rotation = Quaternion(0.09937846, -0.022002222, 0.019293394, 0.9946193)
-bones/7/position = Vector3(-0.2909122, 0.587187, -0.034182273)
-bones/7/rotation = Quaternion(0.86907357, -0.4944728, 0.007131399, 0.0125339525)
+bones/7/position = Vector3(-0.2900486, 0.57732034, -0.033897616)
+bones/7/rotation = Quaternion(0.8660863, -0.49968642, 0.007206592, 0.012490867)
 bones/8/rotation = Quaternion(-0.048259918, 0.017603748, -0.45738265, 0.887785)
 bones/9/rotation = Quaternion(0.09937846, 0.02200222, -0.01929339, 0.9946193)
 bones/11/position = Vector3(0.29999998, 0.49999985, -3.5346515e-09)
-bones/11/rotation = Quaternion(0.02326031, -0.014526991, -0.03034182, 0.9991633)
-bones/12/rotation = Quaternion(-0.09844412, -0.0013452215, 0.030938692, 0.9946607)
-bones/13/rotation = Quaternion(0.62586194, -2.8368843e-10, 0.001424578, 0.7799327)
+bones/11/rotation = Quaternion(-0.008091498, -0.01588101, -0.029021218, 0.99941987)
+bones/12/rotation = Quaternion(-0.12522106, -0.0021847785, 0.030830158, 0.99164736)
+bones/13/rotation = Quaternion(0.5953962, -1.317637e-11, 0.0013552324, 0.8034311)
 bones/13/scale = Vector3(1, 1, 1.0000001)
-bones/14/rotation = Quaternion(0.039074704, -0.015308183, 0.031239932, 0.9986305)
-bones/15/rotation = Quaternion(-0.084267184, 0.0009012338, -0.030986961, 0.9959609)
-bones/16/rotation = Quaternion(0.64798206, 8.046703e-12, -0.0014749279, 0.76165426)
+bones/14/rotation = Quaternion(0.07038816, -0.016746255, 0.029883338, 0.9969314)
+bones/15/rotation = Quaternion(-0.057388794, 6.0429225e-05, -0.031061105, 0.99786866)
+bones/16/rotation = Quaternion(0.67113215, 2.487119e-10, -0.0015276219, 0.7413362)
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1" unique_id=1924892]
+transform = Transform3D(0.9978905, 0.05379505, -0.03634315, 0.057029404, -0.9938644, 0.094772026, -0.03102189, -0.09664466, -0.9948354, 0.7476577, 3.3022428, 0.22083595)
+bone_name = "Bone.010.L"
+bone_idx = 6
+
+[node name="WeaponVisuals" type="MeshInstance3D" parent="Armature/Skeleton3D/BoneAttachment3D" index="0" unique_id=344787785]
+transform = Transform3D(-0.99495167, -0.099900305, 0.009547437, -0.099900536, 0.97689563, -0.18893313, 0.009547628, -0.18893316, -0.9819439, -0.014985263, -0.0051350594, 0.0009661317)
+mesh = SubResource("TextMesh_470aa")
 
 [node name="Camera3D" type="Camera3D" parent="Armature" parent_id_path=PackedInt32Array(748260078) index="1" unique_id=1223873447]
 transform = Transform3D(1, 0, 0, 0, 0.955793, 0.29404032, 0, -0.29404032, 0.955793, 0, 5.2212586, -0.17118931)
@@ -101,7 +115,7 @@ environment = ExtResource("3_6gnr4")
 
 [node name="GeneralPerposeDetector" type="RayCast3D" parent="SpringArm3D/Camera3D" index="0" unique_id=543363602]
 transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0)
-target_position = Vector3(0, -30, 0)
+target_position = Vector3(0, -20.325, 0)
 collision_mask = 40
 collide_with_areas = true
 debug_shape_thickness = 5
@@ -157,6 +171,69 @@ layout_mode = 2
 text = "hp"
 label_settings = ExtResource("5_470aa")
 
+[node name="weapon inspect screen" type="Control" parent="CanvasLayer" index="1" unique_id=1856980931]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/weapon inspect screen" index="0" unique_id=1967757762]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6901961)
+
+[node name="Label" type="Label" parent="CanvasLayer/weapon inspect screen" index="1" unique_id=519709807]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "This weapon, What do you wnat to do with it?"
+label_settings = ExtResource("5_470aa")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/weapon inspect screen" index="2" unique_id=729260803]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/weapon inspect screen" index="3" unique_id=1919291005]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LeaveWeapon" type="Button" parent="CanvasLayer/weapon inspect screen/HBoxContainer" index="0" unique_id=1511200386]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Leave it"
+
+[node name="TakeWeapon" type="Button" parent="CanvasLayer/weapon inspect screen/HBoxContainer" index="1" unique_id=1548631534]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Take it"
+
 [node name="booktimer" type="Timer" parent="." index="5" unique_id=785369618]
 one_shot = true
 
@@ -167,5 +244,7 @@ collision_mask = 18
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.480713, 0)
 shape = SubResource("CapsuleShape3D_lwtqh")
 
+[connection signal="pressed" from="CanvasLayer/weapon inspect screen/HBoxContainer/LeaveWeapon" to="." method="_on_leave_weapon_pressed"]
+[connection signal="pressed" from="CanvasLayer/weapon inspect screen/HBoxContainer/TakeWeapon" to="." method="_on_take_weapon_pressed"]
 [connection signal="timeout" from="booktimer" to="." method="_on_booktimer_timeout"]
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

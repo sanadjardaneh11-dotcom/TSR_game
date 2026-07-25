@@ -4,15 +4,15 @@
 [ext_resource type="FontFile" uid="uid://ckpiul8lxwrs0" path="res://Assets/MathJax_Fraktur-Regular.otf" id="1_rhhov"]
 [ext_resource type="Script" uid="uid://m0031bspnpk4" path="res://Scripts/book.gd" id="2_g74n1"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_g74n1"]
+size = Vector3(1.9658508, 6.317627, 4.2265625)
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g74n1"]
 load_path = "res://.godot/imported/book template.png-67aa116a9ad0362f31ae49f81480e964.s3tc.ctex"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jng8n"]
 albedo_texture = SubResource("CompressedTexture2D_g74n1")
 texture_filter = 0
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_g74n1"]
-size = Vector3(1.9658508, 6.317627, 4.2265625)
 
 [sub_resource type="Animation" id="Animation_36sip"]
 length = 0.001
@@ -162,6 +162,15 @@ _data = {
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 script = ExtResource("2_g74n1")
 
+[node name="Area3D" type="Area3D" parent="." index="0" unique_id=1991050924]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=1924586440]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0.04151916, -0.029418943, 0.052246094)
+shape = SubResource("BoxShape3D_g74n1")
+
 [node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1929689300) index="0" unique_id=294724]
 bones/0/rotation = Quaternion(-0.62795997, 0.32506374, 0.32506356, 0.6279599)
 bones/1/rotation = Quaternion(-0.62795997, -0.32506374, -0.32506356, 0.6279599)
@@ -172,21 +181,13 @@ material_override = SubResource("StandardMaterial3D_jng8n")
 [node name="pages" parent="Armature/Skeleton3D" index="1" unique_id=1857851133]
 material_override = SubResource("StandardMaterial3D_jng8n")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." index="2" unique_id=1233071865]
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="3" unique_id=1233071865]
 transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, -6.208816e-09, 0)
 collision_layer = 8
 collision_mask = 0
 input_ray_pickable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1856562292]
-transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0.04151916, -0.029418943, 0.052246094)
-shape = SubResource("BoxShape3D_g74n1")
-
-[node name="Area3D" type="Area3D" parent="." index="3" unique_id=1991050924]
-collision_layer = 8
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=1924586440]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0.04151916, -0.029418943, 0.052246094)
 shape = SubResource("BoxShape3D_g74n1")
 

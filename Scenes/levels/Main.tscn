@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bh47o6xa25qo" path="res://Scenes/bookshelfbuilder.tscn" id="4_htofc"]
 [ext_resource type="PackedScene" uid="uid://c736k42qsjpjq" path="res://Scenes/objects/spike.tscn" id="5_hbdc3"]
 [ext_resource type="PackedScene" uid="uid://ykfumlww4hhx" path="res://Scenes/objects/weapon.tscn" id="6_eqd4f"]
+[ext_resource type="PackedScene" uid="uid://dj36nym6hcuo2" path="res://Assets/Wepons/staffs/dragon staff.glb" id="7_q1o3j"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_bd11h"]
 
@@ -32,9 +33,6 @@ orientation = 1
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_itpvm"]
 data = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
-
-[sub_resource type="BoxMesh" id="BoxMesh_eqd4f"]
-size = Vector3(5.185, 0.1, 0.1)
 
 [node name="Main" type="Node3D" unique_id=556966458]
 script = ExtResource("1_r150o")
@@ -109,6 +107,6 @@ damge = 1.0
 [node name="Weapon" parent="." unique_id=1534264198 instance=ExtResource("6_eqd4f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3666134, 0.30525514, -8.149254)
 WeaponName = "Staff of Testing"
-mesh = SubResource("BoxMesh_eqd4f")
+mesh_glb = ExtResource("7_q1o3j")
 WeaponDamge = 4
 WeaponSpeed = 1.0

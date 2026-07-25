@@ -12,11 +12,13 @@ extends CharacterBody3D
 @onready var general_perpose_detector: RayCast3D = $SpringArm3D/Camera3D/GeneralPerposeDetector
 @onready var arrow: TextureRect = $CanvasLayer/ui/crossair
 @onready var heathdisplay = [$CanvasLayer/ui/Heath/maxhp, $CanvasLayer/ui/Heath/hp]
+@onready var weapon_inspect_screen: Control = $"CanvasLayer/weapon inspect screen"
+@onready var weapon_visuals: MeshInstance3D = $Armature/Skeleton3D/BoneAttachment3D/WeaponVisuals
 @onready var booktimer: Timer = $booktimer
 @export var booktime:float = 2
 const ARROW = preload("uid://c8iftsmvdya3o")
 const ARROW_SELECTED = preload("uid://10adgrd0va8k")
-var book = -1
+var object = -1
 var uldbookpos:Vector3
 var readbook:bool = false
 var readingbook:bool = false
@@ -26,6 +28,8 @@ var savedata = {}
 var file = file_control.new()
 var damgecalc = DamageCalculations.new()
 var maxhp:float
+var Weapon_data = { "name": "Staff of Testing", "type": 0, "mesh":0, "animationtype":0, "damge": 4, "speed": 1.0, "req": 0 }
+
 func _ready() -> void:
 	camera.get_child(0).current = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -50,15 +54,15 @@ func _physics_process(delta: float) -> void:
 		velocity += Vector3(velocity_on_a_plane.x,0,velocity_on_a_plane.y).rotated(Vector3.UP, camera.rotation.y)*delta
 		velocity = Vector3(clampf(velocity.x,-max_speed,max_speed),velocity.y,clampf(velocity.z,-max_speed,max_speed))
 	velocity /= friction
-	tree.set("parameters/walk/blend_position", Vector2(velocity.x,velocity.z).rotated(camera.rotation.y))
+	tree.set("parameters/walk/blend_position", Vector2(velocity.x,velocity.z).rotated(camera.rotation.y)*0.1)
 	if readbook == true and readingbook == true:
 		#fpcam.current = true
 		var bookrp = book_reading_position.global_position
-		book.position.x = lerpf(book.position.x,bookrp.x,(booktime-booktimer.time_left)/booktime)
-		book.position.y = lerpf(book.position.y,bookrp.y,(booktime-booktimer.time_left)/booktime)
-		book.position.z = lerpf(book.position.z,bookrp.z,(booktime-booktimer.time_left)/booktime)
-		book.rotation.x = lerpf(book.rotation.x,camera.rotation.x+deg_to_rad(45),(booktime-booktimer.time_left)/booktime)
-		book.rotation.y = lerpf(book.rotation.y,camera.rotation.y+deg_to_rad(180),(booktime-booktimer.time_left)/booktime)
+		object.position.x = lerpf(object.position.x,bookrp.x,(booktime-booktimer.time_left)/booktime)
+		object.position.y = lerpf(object.position.y,bookrp.y,(booktime-booktimer.time_left)/booktime)
+		object.position.z = lerpf(object.position.z,bookrp.z,(booktime-booktimer.time_left)/booktime)
+		object.rotation.x = lerpf(object.rotation.x,camera.rotation.x+deg_to_rad(45),(booktime-booktimer.time_left)/booktime)
+		object.rotation.y = lerpf(object.rotation.y,camera.rotation.y+deg_to_rad(180),(booktime-booktimer.time_left)/booktime)
 
 	
 	
@@ -71,8 +75,8 @@ func _input(event: InputEvent) -> void:
 	if event.is_action("ui_cancel"):
 		if readingbook== true:
 			camera.get_child(0).current = true
-			book.playanimation("close")
-			book.returnbook(booktime,uldbookpos)
+			object.playanimation("close")
+			object.returnbook(booktime,uldbookpos)
 			readingbook = false
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -83,19 +87,28 @@ func _unhandled_input(event: InputEvent) -> void:
 		mesh.rotation.y = camera.rotation.y
 	
 func book_read():
-	book = general_perpose_detector.get_collider().get_parent()
-	if book.returning == true:
+	object = general_perpose_detector.get_collider().get_parent()
+	print(object.name+"'s collision layer:"+str(object.get_child(0).get_collision_layer()))
+	if object.get_child(0).get_collision_layer() != 8:
+		if object.get_child(0).get_collision_layer() == 32:
+			weapon_inspect()
+			return
 		return
-	book.label.show()
-	uldbookpos = book.position
+	if object.returning == true:
+		return
+	object.label.show()
+	uldbookpos = object.position
 	booktimer.wait_time = booktime
 	readbook = true
 	readingbook=true
-	book.playanimation("open")
+	object.playanimation("open")
 	booktimer.start()
-	print("read:"+book.name)
+	print("read:"+object.name)
 
-
+func weapon_inspect():
+	print(object.name+" is being inspected")
+	weapon_inspect_screen.show()
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 
 func _on_booktimer_timeout() -> void:
 	readbook = false
@@ -103,4 +116,18 @@ func _on_booktimer_timeout() -> void:
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	hp-=damgecalc.damagetaken(area.damge,0,savedata["stats"]["endurance"])
+	
+
+
+func _on_leave_weapon_pressed() -> void:
+	weapon_inspect_screen.hide()
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+
+func _on_take_weapon_pressed() -> void:
+	print(object.name+"'s data:"+str(object.weapondata))
+	weapon_visuals.mesh = object.weapondata["mesh"]
+	object.queue_free()
+	weapon_inspect_screen.hide()
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	

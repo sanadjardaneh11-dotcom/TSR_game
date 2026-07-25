@@ -38,7 +38,7 @@ func change_res(scale,window):
 	if window == null:
 		return
 		print("File error:window is null")
-	window.content_scale_mode = window.CONTENT_SCALE_MODE_DISABLED
+	window.content_scale_mode = Window.CONTENT_SCALE_MODE_DISABLED
 	window.content_scale_factor =  scale
 	window.size = (Vector2i(screen[0]*scale,screen[1]*scale))
 	print("window size changed")
@@ -50,4 +50,5 @@ func fullscreen(window):
 		print("File error:window is null")
 	window.size = (Vector2i(screen[0]*304/45,screen[1]*304/45))
 	window.content_scale_factor =  304/45
-	window.content_scale_mode = window.CONTENT_SCALE_MODE_VIEWPORT
+	window.content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
+	

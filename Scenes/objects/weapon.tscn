@@ -2,17 +2,21 @@
 
 [ext_resource type="Script" uid="uid://cwck62h607l2c" path="res://Scripts/weapon.gd" id="1_swcir"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_tf867"]
+size = Vector3(1, 1, 9.32605)
+
 [sub_resource type="TextMesh" id="TextMesh_o2wld"]
 text = "No Mesh For Weapon"
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_tf867"]
-
-[node name="Weapon" type="Area3D" unique_id=1956013790]
-collision_layer = 32
+[node name="get_collision_mask()" type="Node3D" unique_id=977703745]
 script = ExtResource("1_swcir")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1639032060]
+collision_layer = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2554863]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.04046631)
+shape = SubResource("BoxShape3D_tf867")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=143632825]
 mesh = SubResource("TextMesh_o2wld")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2554863]
-shape = SubResource("BoxShape3D_tf867")
