@@ -6,7 +6,7 @@ extends Node3D
 @onready var booktimer: Timer = $booktimer
 @onready var cover: MeshInstance3D = $Armature/Skeleton3D/cover
 @onready var pages: MeshInstance3D = $Armature/Skeleton3D/pages
-var textures = {-1:preload("uid://di8l53w1sefi3"),0:preload("uid://b4aq4lgy2b4h8")}
+var textures = {-1:preload("uid://b4yw0ncos8lmc"),0:preload("uid://b4aq4lgy2b4h8")}
 var booktime = 1
 var returnpos:Vector3
 var returning:bool = false
