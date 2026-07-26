@@ -16,6 +16,7 @@ extends CharacterBody3D
 @onready var weapon_visuals: MeshInstance3D = $Armature/Skeleton3D/BoneAttachment3D/WeaponVisuals
 @onready var booktimer: Timer = $booktimer
 @export var booktime:float = 2
+const SPELL = preload("uid://b4pqw4qx07mbg")
 const ARROW = preload("uid://c8iftsmvdya3o")
 const ARROW_SELECTED = preload("uid://10adgrd0va8k")
 var object = -1
@@ -28,7 +29,7 @@ var savedata = {}
 var file = file_control.new()
 var damgecalc = DamageCalculations.new()
 var maxhp:float
-var Weapon_data = { "name": "Staff of Testing", "type": 0, "mesh":0, "animationtype":0, "damge": 4, "speed": 1.0, "req": 0 }
+var Weapon_data = { "name": "Bare hands", "type":-1, "mesh":0, "animationtype":0, "damge": 1, "speed": 1.0, "req": 0 }
 
 func _ready() -> void:
 	camera.get_child(0).current = true
@@ -80,6 +81,20 @@ func _input(event: InputEvent) -> void:
 			readingbook = false
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.pressed == true:
+			match event.button_mask:
+				1:
+					print("Left click")
+					var spell = SPELL.instantiate()
+					add_sibling(spell)
+					spell.start(rotation,position)
+				2:
+					print("right click")
+				4:
+					print("middle click")
+		if event.pressed == false:
+			print("button released")
 	if event is InputEventMouseMotion and readingbook == false:
 		camera.rotation.x -= event.relative.y * camera_speed 
 		camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, -90,90) 

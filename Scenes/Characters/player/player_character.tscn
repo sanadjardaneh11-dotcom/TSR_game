@@ -6,10 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://c8iftsmvdya3o" path="res://Assets/UI/arrow.png" id="4_470aa"]
 [ext_resource type="LabelSettings" uid="uid://b4c2ocohj0dl7" path="res://Assets/UI/TempUiText.tres" id="5_470aa"]
 
-[sub_resource type="TextMesh" id="TextMesh_470aa"]
-text = "No staff mesh currently
-"
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sd786"]
 animation = &"walkL"
 
@@ -63,31 +59,30 @@ bones/0/rotation = Quaternion(0.017226925, -1.0996165e-17, -1.0996165e-17, 0.999
 bones/1/rotation = Quaternion(-0.0028066589, 1.8181949e-18, 1.817293e-18, 0.99999607)
 bones/2/rotation = Quaternion(0.06957627, -1.117517e-16, -1.0983332e-16, 0.99757665)
 bones/3/rotation = Quaternion(-0.3385002, 1.12171925e-07, -4.0352365e-08, 0.9409663)
-bones/4/position = Vector3(0.2900486, 0.57732034, -0.033897616)
-bones/4/rotation = Quaternion(0.86608636, 0.49968645, -0.0072065922, 0.012490868)
+bones/4/position = Vector3(0.28999564, 0.57671493, -0.03388015)
+bones/4/rotation = Quaternion(0.865902, 0.5000057, -0.0072111953, 0.01248821)
 bones/5/rotation = Quaternion(-0.048259925, -0.017603764, 0.45738265, 0.88778496)
 bones/6/rotation = Quaternion(0.09937846, -0.022002222, 0.019293394, 0.9946193)
-bones/7/position = Vector3(-0.2900486, 0.57732034, -0.033897616)
-bones/7/rotation = Quaternion(0.8660863, -0.49968642, 0.007206592, 0.012490867)
+bones/7/position = Vector3(-0.28999564, 0.57671493, -0.03388015)
+bones/7/rotation = Quaternion(0.865902, -0.5000058, 0.007211196, 0.012488211)
 bones/8/rotation = Quaternion(-0.048259918, 0.017603748, -0.45738265, 0.887785)
 bones/9/rotation = Quaternion(0.09937846, 0.02200222, -0.01929339, 0.9946193)
 bones/11/position = Vector3(0.29999998, 0.49999985, -3.5346515e-09)
-bones/11/rotation = Quaternion(-0.008091498, -0.01588101, -0.029021218, 0.99941987)
-bones/12/rotation = Quaternion(-0.12522106, -0.0021847785, 0.030830158, 0.99164736)
-bones/13/rotation = Quaternion(0.5953962, -1.317637e-11, 0.0013552324, 0.8034311)
+bones/11/rotation = Quaternion(-0.009276519, -0.015931394, -0.02897045, 0.9994103)
+bones/12/rotation = Quaternion(-0.12624563, -0.002216928, 0.03082555, 0.9915175)
+bones/13/rotation = Quaternion(0.5942248, -1.2953863e-10, 0.0013525658, 0.8042979)
 bones/13/scale = Vector3(1, 1, 1.0000001)
-bones/14/rotation = Quaternion(0.07038816, -0.016746255, 0.029883338, 0.9969314)
-bones/15/rotation = Quaternion(-0.057388794, 6.0429225e-05, -0.031061105, 0.99786866)
-bones/16/rotation = Quaternion(0.67113215, 2.487119e-10, -0.0015276219, 0.7413362)
+bones/14/rotation = Quaternion(0.07157049, -0.016799878, 0.029831145, 0.9968478)
+bones/15/rotation = Quaternion(-0.056357678, 2.8199522e-05, -0.0310635, 0.99792737)
+bones/16/rotation = Quaternion(0.67200375, 1.5574363e-10, -0.0015296057, 0.74054617)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1" unique_id=1924892]
-transform = Transform3D(0.9978905, 0.05379505, -0.03634315, 0.057029404, -0.9938644, 0.094772026, -0.03102189, -0.09664466, -0.9948354, 0.7476577, 3.3022428, 0.22083595)
+transform = Transform3D(0.99784815, 0.054527946, -0.03641303, 0.057765186, -0.9938243, 0.09474518, -0.03102189, -0.09664466, -0.9948354, 0.7486192, 3.301975, 0.22083594)
 bone_name = "Bone.010.L"
 bone_idx = 6
 
 [node name="WeaponVisuals" type="MeshInstance3D" parent="Armature/Skeleton3D/BoneAttachment3D" index="0" unique_id=344787785]
-transform = Transform3D(-0.99495167, -0.099900305, 0.009547437, -0.099900536, 0.97689563, -0.18893313, 0.009547628, -0.18893316, -0.9819439, -0.014985263, -0.0051350594, 0.0009661317)
-mesh = SubResource("TextMesh_470aa")
+transform = Transform3D(1, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000002, -0.005, 0.793, -0.078)
 
 [node name="Camera3D" type="Camera3D" parent="Armature" parent_id_path=PackedInt32Array(748260078) index="1" unique_id=1223873447]
 transform = Transform3D(1, 0, 0, 0, 0.955793, 0.29404032, 0, -0.29404032, 0.955793, 0, 5.2212586, -0.17118931)

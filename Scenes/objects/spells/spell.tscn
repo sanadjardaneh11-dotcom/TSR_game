@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b4pqw4qx07mbg"]
+
+[ext_resource type="Script" uid="uid://jaj4oxshh4ml" path="res://Scripts/spell.gd" id="1_f0bp4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_36frk"]
+radius = 0.6464844
+height = 2.2768555
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_dxj15"]
+
+[node name="spell" type="Node3D" unique_id=1987221203]
+script = ExtResource("1_f0bp4")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=943252134]
+collision_layer = 64
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2080064966]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.03100586, -1.355309e-09, 0)
+shape = SubResource("CapsuleShape3D_36frk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=497298662]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_dxj15")
