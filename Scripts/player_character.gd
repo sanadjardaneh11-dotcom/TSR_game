@@ -88,7 +88,7 @@ func _unhandled_input(event: InputEvent) -> void:
 					print("Left click")
 					var spell = SPELL.instantiate()
 					add_sibling(spell)
-					spell.start(rotation,position)
+					spell.start(mesh.rotation,position)
 				2:
 					print("right click")
 				4:
