@@ -59,25 +59,25 @@ bones/0/rotation = Quaternion(0.017226925, -1.0996165e-17, -1.0996165e-17, 0.999
 bones/1/rotation = Quaternion(-0.0028066589, 1.8181949e-18, 1.817293e-18, 0.99999607)
 bones/2/rotation = Quaternion(0.06957627, -1.117517e-16, -1.0983332e-16, 0.99757665)
 bones/3/rotation = Quaternion(-0.3385002, 1.12171925e-07, -4.0352365e-08, 0.9409663)
-bones/4/position = Vector3(0.28999564, 0.57671493, -0.03388015)
-bones/4/rotation = Quaternion(0.865902, 0.5000057, -0.0072111953, 0.01248821)
+bones/4/position = Vector3(0.2909263, 0.58734804, -0.034186922)
+bones/4/rotation = Quaternion(0.8691221, 0.49438754, -0.00713017, 0.012534651)
 bones/5/rotation = Quaternion(-0.048259925, -0.017603764, 0.45738265, 0.88778496)
 bones/6/rotation = Quaternion(0.09937846, -0.022002222, 0.019293394, 0.9946193)
-bones/7/position = Vector3(-0.28999564, 0.57671493, -0.03388015)
-bones/7/rotation = Quaternion(0.865902, -0.5000058, 0.007211196, 0.012488211)
+bones/7/position = Vector3(-0.2909263, 0.58734804, -0.034186922)
+bones/7/rotation = Quaternion(0.8691221, -0.49438754, 0.0071301693, 0.012534651)
 bones/8/rotation = Quaternion(-0.048259918, 0.017603748, -0.45738265, 0.887785)
 bones/9/rotation = Quaternion(0.09937846, 0.02200222, -0.01929339, 0.9946193)
 bones/11/position = Vector3(0.29999998, 0.49999985, -3.5346515e-09)
-bones/11/rotation = Quaternion(-0.009276519, -0.015931394, -0.02897045, 0.9994103)
-bones/12/rotation = Quaternion(-0.12624563, -0.002216928, 0.03082555, 0.9915175)
-bones/13/rotation = Quaternion(0.5942248, -1.2953863e-10, 0.0013525658, 0.8042979)
+bones/11/rotation = Quaternion(0.02451553, -0.014471933, -0.030394178, 0.9991325)
+bones/12/rotation = Quaternion(-0.09737929, -0.001311861, 0.030942539, 0.99476534)
+bones/13/rotation = Quaternion(0.6270614, -2.9828837e-10, 0.0014273082, 0.7789686)
 bones/13/scale = Vector3(1, 1, 1.0000001)
-bones/14/rotation = Quaternion(0.07157049, -0.016799878, 0.029831145, 0.9968478)
-bones/15/rotation = Quaternion(-0.056357678, 2.8199522e-05, -0.0310635, 0.99792737)
-bones/16/rotation = Quaternion(0.67200375, 1.5574363e-10, -0.0015296057, 0.74054617)
+bones/14/rotation = Quaternion(0.03781975, -0.0152498055, 0.031293675, 0.99867815)
+bones/15/rotation = Quaternion(-0.08533332, 0.0009346103, -0.030983552, 0.99587023)
+bones/16/rotation = Quaternion(0.64704806, 8.012827e-12, -0.001472802, 0.7624479)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1" unique_id=1924892]
-transform = Transform3D(0.99784815, 0.054527946, -0.03641303, 0.057765186, -0.9938243, 0.09474518, -0.03102189, -0.09664466, -0.9948354, 0.7486192, 3.301975, 0.22083594)
+transform = Transform3D(0.9985127, 0.041651197, -0.03518282, 0.04483606, -0.99444735, 0.09520889, -0.03102189, -0.096644655, -0.9948354, 0.731696, 3.3067875, 0.22083595)
 bone_name = "Bone.010.L"
 bone_idx = 6
 
@@ -238,6 +238,10 @@ collision_mask = 18
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=507417298]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.480713, 0)
 shape = SubResource("CapsuleShape3D_lwtqh")
+
+[node name="ChargeTimer" type="Timer" parent="." index="7" unique_id=609451234]
+wait_time = 10.0
+one_shot = true
 
 [connection signal="pressed" from="CanvasLayer/weapon inspect screen/HBoxContainer/LeaveWeapon" to="." method="_on_leave_weapon_pressed"]
 [connection signal="pressed" from="CanvasLayer/weapon inspect screen/HBoxContainer/TakeWeapon" to="." method="_on_take_weapon_pressed"]

@@ -15,6 +15,7 @@ extends CharacterBody3D
 @onready var weapon_inspect_screen: Control = $"CanvasLayer/weapon inspect screen"
 @onready var weapon_visuals: MeshInstance3D = $Armature/Skeleton3D/BoneAttachment3D/WeaponVisuals
 @onready var booktimer: Timer = $booktimer
+@onready var chargetimer: Timer = $ChargeTimer
 @export var booktime:float = 2
 const SPELL = preload("uid://b4pqw4qx07mbg")
 const ARROW = preload("uid://c8iftsmvdya3o")
@@ -29,6 +30,7 @@ var savedata = {}
 var file = file_control.new()
 var damgecalc = DamageCalculations.new()
 var maxhp:float
+var charge = null
 var Weapon_data = { "name": "Bare hands", "type":-1, "mesh":0, "animationtype":0, "damge": 1, "speed": 1.0, "req": 0 }
 
 func _ready() -> void:
@@ -86,15 +88,21 @@ func _unhandled_input(event: InputEvent) -> void:
 			match event.button_mask:
 				1:
 					print("Left click")
-					var spell = SPELL.instantiate()
-					add_sibling(spell)
-					spell.start(mesh.rotation,position)
+					charge = -1
+					chargetimer.start()
 				2:
 					print("right click")
 				4:
 					print("middle click")
 		if event.pressed == false:
 			print("button released")
+			if charge != null:
+				charge = (chargetimer.wait_time-chargetimer.time_left)
+				chargetimer.stop()
+				var spell = SPELL.instantiate()
+				add_sibling(spell)
+				spell.start(Vector3(0,mesh.rotation.y,camera.rotation.x),position,charge)
+				charge = null
 	if event is InputEventMouseMotion and readingbook == false:
 		camera.rotation.x -= event.relative.y * camera_speed 
 		camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, -90,90) 
