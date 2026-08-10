@@ -88,8 +88,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			match event.button_mask:
 				1:
 					print("Left click")
-					charge = -1
-					chargetimer.start()
+					if Weapon_data["type"] == 0:#zero for staff
+						charge = -1
+						chargetimer.start()
 				2:
 					print("right click")
 				4:
@@ -149,6 +150,7 @@ func _on_leave_weapon_pressed() -> void:
 
 func _on_take_weapon_pressed() -> void:
 	print(object.name+"'s data:"+str(object.weapondata))
+	Weapon_data = object.weapondata
 	weapon_visuals.mesh = object.weapondata["mesh"]
 	object.queue_free()
 	weapon_inspect_screen.hide()
