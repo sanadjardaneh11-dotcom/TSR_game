@@ -102,7 +102,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				chargetimer.stop()
 				var spell = SPELL.instantiate()
 				add_sibling(spell)
-				spell.start(Vector3(0,mesh.rotation.y,camera.rotation.x),position,charge)
+				spell.start(Vector3(0,mesh.rotation.y,camera.rotation.x),position+weapon_visuals.get_parent().position.rotated(Vector3.UP,mesh.rotation.y)+Vector3(0,0,-2.5).rotated(Vector3.UP,mesh.rotation.y),charge)
 				charge = null
 	if event is InputEventMouseMotion and readingbook == false:
 		camera.rotation.x -= event.relative.y * camera_speed 
