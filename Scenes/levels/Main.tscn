@@ -99,11 +99,11 @@ text = "Rempetal spell"
 
 [node name="spike" parent="." unique_id=803186902 instance=ExtResource("5_hbdc3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 1)
-damge = 1.0
+damage = 1.0
 
 [node name="spike2" parent="." unique_id=1184700829 instance=ExtResource("5_hbdc3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2)
-damge = 1.0
+damage = 1.0
 
 [node name="Weapon" parent="." unique_id=1534264198 instance=ExtResource("6_eqd4f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3666134, 0.30525514, -8.149254)

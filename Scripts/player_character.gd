@@ -32,7 +32,7 @@ var damgecalc = DamageCalculations.new()
 var maxhp:float
 var charge = null
 var Weapon_data = { "name": "Bare hands", "type":-1, "mesh":0, "animationtype":0, "damge": 1, "speed": 1.0, "req": 0 }
-
+var dead:bool = false
 func _ready() -> void:
 	camera.get_child(0).current = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -44,8 +44,12 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if dead == true:
+		return
 	heathdisplay[0].text = str(int(maxhp))+"/"
 	heathdisplay[1].text = str(int(hp))
+	if hp < 0:
+		die()
 	if general_perpose_detector.is_colliding() == true:
 		arrow.texture = ARROW_SELECTED
 	else:arrow.texture = ARROW
@@ -71,7 +75,13 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
+func die():
+	dead = true
+	print("died")
+
 func _input(event: InputEvent) -> void:
+	if dead == true:
+		return
 	if event.is_action("ui_accept"):
 		if general_perpose_detector.is_colliding() == true and readingbook == false:
 			book_read()
@@ -83,6 +93,8 @@ func _input(event: InputEvent) -> void:
 			readingbook = false
 
 func _unhandled_input(event: InputEvent) -> void:
+	if dead == true:
+		return
 	if event is InputEventMouseButton:
 		if event.pressed == true:
 			match event.button_mask:
@@ -140,7 +152,6 @@ func _on_booktimer_timeout() -> void:
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	hp-=damgecalc.damagetaken(area.damage,0,savedata["stats"]["endurance"])
-	
 
 
 func _on_leave_weapon_pressed() -> void:
