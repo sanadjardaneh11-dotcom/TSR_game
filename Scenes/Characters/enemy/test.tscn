@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c0ggdb54c5a3c"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_bjruq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l7p2f"]
+
+[node name="enemy" type="Node3D" unique_id=1495464366]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1663352132]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_bjruq")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=837705871]
+collision_layer = 2
+collision_mask = 65
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1465660199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_l7p2f")

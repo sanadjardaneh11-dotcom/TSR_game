@@ -22,6 +22,8 @@ func _ready() -> void:
 	dispmusic.text = str(music.value)
 	dispsounds.text = str(sounds.value)
 	dispres.text = str(res.value)
+	if res.value == 5:
+		dispres.text = "Fullscreen"
 	
 
 
@@ -39,6 +41,7 @@ func _on_size_value_changed(value: float) -> void:
 	if res.value == 5:
 		dispres.text = "Fullscreen"
 		savedata["settings"][3] = int(1)
+		savedata["settings"][2] = int(5)
 	else:
 		dispres.text = str(res.value)
 		savedata["settings"][3] = int(0)
