@@ -1,2 +1,2 @@
 extends Area3D
-@export var damge:float
+@export var damage:float

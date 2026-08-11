@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://c0ggdb54c5a3c"]
 
+[ext_resource type="Script" uid="uid://cdyj75t1nes0g" path="res://Scripts/enemy AI/test.gd" id="1_l7p2f"]
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_bjruq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l7p2f"]
 
 [node name="enemy" type="Node3D" unique_id=1495464366]
+script = ExtResource("1_l7p2f")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1663352132]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -17,3 +20,5 @@ collision_mask = 65
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1465660199]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_l7p2f")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

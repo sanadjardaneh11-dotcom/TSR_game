@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c736k42qsjpjq" path="res://Scenes/objects/spike.tscn" id="5_hbdc3"]
 [ext_resource type="PackedScene" uid="uid://ykfumlww4hhx" path="res://Scenes/objects/weapon.tscn" id="6_eqd4f"]
 [ext_resource type="PackedScene" uid="uid://dj36nym6hcuo2" path="res://Assets/Wepons/staffs/dragon staff.glb" id="7_q1o3j"]
+[ext_resource type="PackedScene" uid="uid://c0ggdb54c5a3c" path="res://Scenes/Characters/enemy/test.tscn" id="8_iqa5h"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_bd11h"]
 
@@ -110,3 +111,6 @@ WeaponName = "Staff of Testing"
 mesh_glb = ExtResource("7_q1o3j")
 WeaponDamge = 4
 WeaponSpeed = 1.0
+
+[node name="enemy" parent="." unique_id=1495464366 instance=ExtResource("8_iqa5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.38266, 0, -5.4728155)
