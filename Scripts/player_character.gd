@@ -151,7 +151,8 @@ func _on_booktimer_timeout() -> void:
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	hp-=damgecalc.damagetaken(area.damage,0,savedata["stats"]["endurance"])
+	if area.collision_layer == 16:
+		hp-=damgecalc.damagetaken(area.damage,0,savedata["stats"]["endurance"])
 
 
 func _on_leave_weapon_pressed() -> void:
